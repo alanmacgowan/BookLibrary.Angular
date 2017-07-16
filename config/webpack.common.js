@@ -14,11 +14,11 @@ module.exports = {
     }
     , module: {
         rules: [{
-            //     test: /\.ts$/,
-            //     enforce: 'pre',
-            //     loader: 'tslint-loader'
-            // },
-            // {
+            test: /\.ts$/,
+            enforce: 'pre',
+            loader: 'tslint-loader'
+        },
+        {
             test: /\.ts$/,
             loaders: ['awesome-typescript-loader?', 'angular2-template-loader', '@angularclass/hmr-loader'],
             //exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
