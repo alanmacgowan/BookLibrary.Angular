@@ -17,7 +17,7 @@ module.exports = webpackMerge(commonConfig, {
   plugins: [
     new ExtractTextPlugin('[name].css'),
     //new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080/login.html' })
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/index.html' })
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
