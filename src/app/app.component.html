@@ -1,15 +1,10 @@
-<header>
-  <nav>
-    <a [routerLink]="['']">Dashboard</a>
-  </nav>
-</header>
-<main>
-  <h1>Hello from {{title}}!</h1>
+<app-header></app-header>
 
+<app-menu></app-menu>
 
-
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <a [href]="url">BookLibrary.Angular</a>
-</footer>
+<div id="page-wrapper">
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>
