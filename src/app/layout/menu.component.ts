@@ -5,7 +5,6 @@ class MenuItem {
 }
 
 @Component({
-    // moduleId: module.id,
     selector: 'app-menu',
     templateUrl: 'menu.component.html'
 })

@@ -4,23 +4,27 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { routing } from './app-routing.module';
-import { HeaderComponent } from "./layout/header.component";
-import { FooterComponent } from "./layout/footer.component";
-import { MenuComponent } from "./layout/menu.component";
+import { HeaderComponent } from './layout/header.component';
+import { FooterComponent } from './layout/footer.component';
+import { MenuComponent } from './layout/menu.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    DashboardModule,
+    routing,
+    CoreModule
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
+    // DashboardComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent
@@ -28,5 +32,5 @@ import { MenuComponent } from "./layout/menu.component";
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {}
+  constructor() { }
 }
