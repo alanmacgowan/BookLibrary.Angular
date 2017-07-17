@@ -6,7 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { routing } from './app.routing';
+import { routing } from './app-routing.module';
+import { HeaderComponent } from "./layout/header.component";
+import { FooterComponent } from "./layout/footer.component";
+import { MenuComponent } from "./layout/menu.component";
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import { routing } from './app.routing';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    MenuComponent
   ],
   bootstrap: [AppComponent]
 })

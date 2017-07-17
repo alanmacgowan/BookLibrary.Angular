@@ -1,4 +1,5 @@
 import './polyfills';
+import './scripts/app.js';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
