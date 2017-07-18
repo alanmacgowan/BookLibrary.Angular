@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 class MenuItem {
-  constructor(public caption: string, public link: any[]) { }
+  constructor(public caption: string, public link: any[], public icon: string) { }
 }
 
 @Component({
@@ -16,10 +16,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = [
-      { caption: 'Dashboard', link: ['/dashboard'] },
-      { caption: 'Books', link: ['/books'] },
-      { caption: 'Authors', link: ['/authors'] },
-      { caption: 'Profile', link: ['/profile'] }
+      { caption: 'Dashboard', link: ['/dashboard'], icon: 'fa fa-tachometer fa-fw' },
+      { caption: 'Books', link: ['/books'], icon: 'fa fa-book fa-fw' },
+      { caption: 'Authors', link: ['/authors'], icon: 'fa fa-edit fa-fw' },
+      { caption: 'Profile', link: ['/profile'], icon: 'fa fa-cog fa-fw' }
     ];
   }
 

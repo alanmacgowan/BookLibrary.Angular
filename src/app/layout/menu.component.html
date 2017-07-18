@@ -4,25 +4,16 @@
         <ul id="side-menu" class="nav">
 
             <div class="clearfix"></div>
-            <li class="active"><a href="dashboard.html"><i class="fa fa-tachometer fa-fw">
+
+            <li *ngFor="let item of menuItems">
+                <a [routerLink]="item.link" routerLinkActive="active"  href="">
+                    <i class="{{item.icon}}">
                         <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Dashboard</span></a></li>
-
-            <li><a href="books.html"><i class="fa fa-book fa-fw">
-                        <div class="icon-bg bg-yellow"></div>
-                    </i><span class="menu-title">Books</span></a>
+                    </i>
+                    <span class="menu-title">{{item.caption}}</span>
+                </a>
             </li>
-
-            <li><a href="authors.html"><i class="fa fa-edit fa-fw">
-                        <div class="icon-bg bg-violet"></div>
-                    </i><span class="menu-title">Authors</span></a>
-            </li>
-
-            <li><a href="profile.html"><i class="fa fa-cog fa-fw">
-                        <div class="icon-bg bg-blue"></div>
-                    </i><span class="menu-title">Profile</span></a>
-            </li>
-
+            
         </ul>
     </div>
 </nav>
