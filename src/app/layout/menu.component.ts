@@ -11,6 +11,7 @@ class MenuItem {
 export class MenuComponent implements OnInit {
 
   menuItems: MenuItem[];
+  selectedItem: MenuItem;
 
   constructor() { }
 
@@ -21,6 +22,10 @@ export class MenuComponent implements OnInit {
       { caption: 'Authors', link: ['/authors'], icon: 'fa fa-edit fa-fw' },
       { caption: 'Profile', link: ['/profile'], icon: 'fa fa-cog fa-fw' }
     ];
+  }
+
+  listClick(newValue) {
+    this.selectedItem = newValue;
   }
 
 }

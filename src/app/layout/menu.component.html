@@ -5,7 +5,7 @@
 
             <div class="clearfix"></div>
 
-            <li *ngFor="let item of menuItems">
+            <li *ngFor="let item of menuItems" [ngClass]="{'active': selectedItem == item}" (click)="listClick(item)">
                 <a [routerLink]="item.link" routerLinkActive="active"  href="">
                     <i class="{{item.icon}}">
                         <div class="icon-bg bg-orange"></div>
@@ -13,7 +13,7 @@
                     <span class="menu-title">{{item.caption}}</span>
                 </a>
             </li>
-            
+
         </ul>
     </div>
 </nav>
