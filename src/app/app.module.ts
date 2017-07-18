@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { routing } from './app-routing.module';
 import { HeaderComponent } from './layout/header.component';
@@ -24,7 +23,6 @@ import { CoreModule } from './core/core.module';
   ],
   declarations: [
     AppComponent,
-    // DashboardComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent

@@ -5,14 +5,14 @@ class MenuItem {
 }
 
 @Component({
-    selector: 'app-menu',
-    templateUrl: 'menu.component.html'
+  selector: 'app-menu',
+  templateUrl: 'menu.component.html'
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
-
   menuItems: MenuItem[];
+
+  constructor() { }
 
   ngOnInit() {
     this.menuItems = [
@@ -20,8 +20,7 @@ export class MenuComponent implements OnInit {
       { caption: 'Books', link: ['/books'] },
       { caption: 'Authors', link: ['/authors'] },
       { caption: 'Profile', link: ['/profile'] }
-      ];
+    ];
   }
 
-  
 }
