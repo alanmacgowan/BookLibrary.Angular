@@ -7,7 +7,7 @@ import { CoreModule } from '../core/core.module';
 @NgModule({
   imports: [
       CommonModule,
-      AuthorRoutingModule, 
+      AuthorRoutingModule,
       CoreModule],
   declarations: [routedComponents],
 })
