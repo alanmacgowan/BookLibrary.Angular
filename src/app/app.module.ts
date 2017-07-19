@@ -11,6 +11,8 @@ import { FooterComponent } from './layout/footer.component';
 import { MenuComponent } from './layout/menu.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { AuthorModule } from './author/author.module';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { CoreModule } from './core/core.module';
     HttpModule,
     FormsModule,
     DashboardModule,
+    AuthorModule,
     routing,
     CoreModule
   ],
@@ -25,7 +28,8 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    PageNotFoundComponent
   ],
   bootstrap: [AppComponent]
 })
