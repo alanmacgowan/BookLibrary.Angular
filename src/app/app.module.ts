@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { routing } from './app-routing.module';
 import { HeaderComponent } from './layout/header.component';
@@ -12,6 +11,8 @@ import { FooterComponent } from './layout/footer.component';
 import { MenuComponent } from './layout/menu.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { AuthorModule } from './author/author.module';
 
 @NgModule({
   imports: [
@@ -19,15 +20,16 @@ import { CoreModule } from './core/core.module';
     HttpModule,
     FormsModule,
     DashboardModule,
+    AuthorModule,
     routing,
     CoreModule
   ],
   declarations: [
     AppComponent,
-    // DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    PageNotFoundComponent
   ],
   bootstrap: [AppComponent]
 })

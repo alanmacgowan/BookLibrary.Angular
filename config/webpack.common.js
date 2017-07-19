@@ -21,7 +21,7 @@ module.exports = {
         {
             test: /\.ts$/,
             loaders: ['awesome-typescript-loader?', 'angular2-template-loader', '@angularclass/hmr-loader'],
-            //exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
+            exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
         },
         {
             test: /\.css$/,
@@ -36,11 +36,11 @@ module.exports = {
         },
         {
             test: /\.(png|svg|jpg|gif)$/,
-            use: [
-                'file-loader'
-            ]
+            use: ['file-loader']
         },
-        { test: /\.json$/, loader: 'json-loader' },
+        { 
+            test: /\.json$/, 
+            loader: 'json-loader' },
         {
             test: /\.html$/,
             use: 'raw-loader',

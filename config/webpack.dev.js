@@ -4,6 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
@@ -16,7 +17,7 @@ module.exports = webpackMerge(commonConfig, {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
-    //new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({ url: 'http://localhost:8080/index.html' })
   ],
   devServer: {
