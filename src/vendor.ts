@@ -9,3 +9,5 @@ import '@angular/router';
 
 import 'rxjs';
 import '@angularclass/hmr';
+
+import 'primeng/primeng';

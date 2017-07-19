@@ -3,7 +3,8 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../styles/main.css';
 import '../styles/style-responsive.css';
 import '../styles/jplist-custom.css';
-
+import '../../node_modules/primeng/resources/themes/omega/theme.css';
+import '../../node_modules/primeng/resources/primeng.min.css';
 
 import "./jquery-migrate-1.2.1.min.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
