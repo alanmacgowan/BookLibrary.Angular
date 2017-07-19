@@ -18,4 +18,8 @@ export class AuthorEditComponent implements OnInit {
     this.router.navigate(['/authors']);
   }
 
+  save() {
+
+  }
+
 }

@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             Author</div>
                         <div class="panel-body pan">
-                            <form action="#">
+                            <form action="">
                                 <div class="form-body pal">
 
                                     <div class="row">
@@ -97,12 +97,9 @@
                                         </div>
                                     </div>
 
-
-
-
                                 </div>
                                 <div class="form-actions text-right pal">
-                                    <button type="submit" class="btn btn-green" data-hover="tooltip" title="Save">Save</button>&nbsp;
+                                    <button type="button" class="btn btn-green" data-hover="tooltip" (click)="save()" title="Save">Save</button>&nbsp;
                                     <button type="reset" class="btn btn-danger" data-hover="tooltip" (click)="cancelSave()" title="Cancel">Cancel</button>
                                 </div>
                             </form>
