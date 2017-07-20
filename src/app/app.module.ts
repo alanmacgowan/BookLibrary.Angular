@@ -9,6 +9,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthorModule } from './author/author.module';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { AuthorModule } from './author/author.module';
     FormsModule,
     DashboardModule,
     AuthorModule,
+    BookModule,
     routing,
     CoreModule
   ],

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Author } from '../models/author.model';
+import { Book } from '../models/book.model';
 
 @Component({
-  selector: 'app-authoredit',
-  templateUrl: './authoredit.component.html'
+  selector: 'app-bookedit',
+  templateUrl: './bookedit.component.html'
 })
-export class AuthorEditComponent implements OnInit {
+export class BookEditComponent implements OnInit {
 
-  editAuthor: Author = <Author>{};
+  editBook: Book = <Book>{};
 
   private id: any;
 
@@ -21,7 +21,7 @@ export class AuthorEditComponent implements OnInit {
   }
 
   cancelSave() {
-    this.router.navigate(['/authors']);
+    this.router.navigate(['/books']);
   }
 
   save() {
