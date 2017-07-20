@@ -7,6 +7,7 @@ import { BackToTopComponent } from './backtotop/backtotop.component';
 import { HeaderComponent } from './layout/header.component';
 import { FooterComponent } from './layout/footer.component';
 import { MenuComponent } from './layout/menu.component';
+import { CategoryLabelComponent } from './categorylabel/categorylabel.component';
 
 @NgModule({
     imports: [
@@ -18,14 +19,16 @@ import { MenuComponent } from './layout/menu.component';
         BackToTopComponent,
         HeaderComponent,
         FooterComponent,
-        MenuComponent
+        MenuComponent,
+        CategoryLabelComponent
     ],
     exports: [
         TitleComponent,
         BackToTopComponent,
         HeaderComponent,
         FooterComponent,
-        MenuComponent
+        MenuComponent,
+        CategoryLabelComponent
     ]
 })
 export class CoreModule {
