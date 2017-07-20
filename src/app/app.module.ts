@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { BookModule } from './book/book.module';
     HttpModule,
     FormsModule,
     DashboardModule,
+    ProfileModule,
     AuthorModule,
     BookModule,
     routing,
