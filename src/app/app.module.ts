@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
 import { ProfileModule } from './profile/profile.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ProfileModule } from './profile/profile.module';
     HttpModule,
     FormsModule,
     DashboardModule,
+    LoginModule,
     ProfileModule,
     AuthorModule,
     BookModule,
