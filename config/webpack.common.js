@@ -25,10 +25,13 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: "css-loader"
-            })
+            exclude: helpers.root('src', 'app'),
+            use: ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader" })
+        },
+        {
+            test: /\.css$/,
+            include: helpers.root('src', 'app'),
+            loaders: ['css-to-string-loader', 'css-loader']
         },
         {
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -38,9 +41,10 @@ module.exports = {
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
         },
-        { 
-            test: /\.json$/, 
-            loader: 'json-loader' },
+        {
+            test: /\.json$/,
+            loader: 'json-loader'
+        },
         {
             test: /\.html$/,
             use: 'raw-loader',
