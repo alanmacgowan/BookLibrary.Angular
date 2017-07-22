@@ -4,7 +4,7 @@ import { ToastService } from './toast.service';
 import { Subscription } from 'rxjs/Subscription'
 
 @Component({
-  selector: 'story-toast',
+  selector: 'app-toast',
    templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.css']
 })

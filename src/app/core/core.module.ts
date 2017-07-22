@@ -9,12 +9,14 @@ import { FooterComponent } from './layout/footer.component';
 import { MenuComponent } from './layout/menu.component';
 import { CategoryLabelComponent } from './categorylabel/categorylabel.component';
 import { ToastModule } from './toast/toast.module';
+import { SpinnerModule } from './spinner/spinner.module';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
-        ToastModule
+        ToastModule,
+        SpinnerModule
     ],
     declarations: [
         TitleComponent,
@@ -31,7 +33,8 @@ import { ToastModule } from './toast/toast.module';
         FooterComponent,
         MenuComponent,
         CategoryLabelComponent,
-        ToastModule
+        ToastModule,
+        SpinnerModule
     ]
 })
 export class CoreModule {
