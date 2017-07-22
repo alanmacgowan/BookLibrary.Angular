@@ -28,13 +28,12 @@ export class BookEditComponent implements OnInit {
   }
 
   save() {
-        this.spinnerService.show();  
-        setTimeout(() => {
-
-      this.toastService.activate('success', `Successfully Saved`);
-      //this.router.navigate(['/books']);
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.toastService.success(`Successfully Saved`);
+      this.router.navigate(['/books']);
       this.spinnerService.hide();
-    }, 5000);
+    }, 3000);
 
   }
 
