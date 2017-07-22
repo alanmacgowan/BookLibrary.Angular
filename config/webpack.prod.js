@@ -14,7 +14,7 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: helpers.root('dist'),
-    publicPath: "/BookLibraryAngular",
+    publicPath: "http://localhost:801/BooklibraryAngular/",
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js"
   },
