@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ToastService } from './toast.service';
+import { ToastService, ToasterType } from './toast.service';
 
 import { Subscription } from 'rxjs/Subscription'
 
@@ -12,7 +12,7 @@ export class ToastComponent implements OnDestroy, OnInit {
   private defaults = {
     title: '',
     message: '',
-    type: 'success'
+    type: ToasterType.Success
   };
   private toastElement: any;
   private toastSubscription: Subscription;
@@ -37,13 +37,13 @@ export class ToastComponent implements OnDestroy, OnInit {
 
   getToasterClass(type){
     switch(type){
-      case 'success':
+      case ToasterType.Success:
         return 'toast-success';
-      case 'info':
+      case ToasterType.Info:
         return 'toast-info';
-      case 'warning':
+      case ToasterType.Warning:
         return 'toast-warning';
-      case 'error':
+      case ToasterType.Error:
         return 'toast-error';
       default:
         return 'toast-success';
