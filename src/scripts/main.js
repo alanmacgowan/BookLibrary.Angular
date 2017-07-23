@@ -1,5 +1,19 @@
 $(function () {
     
+    $(document).ready(function() {
+        // apply dropdownHover to all elements with the data-hover="dropdown" attribute
+        $('[data-hover="dropdown"]').dropdownHover();
+
+        //BEGIN TOOTLIP
+        $("[data-toggle='tooltip'], [data-hover='tooltip']").tooltip();
+        //END TOOLTIP
+
+        //BEGIN POPOVER
+        $("[data-toggle='popover'], [data-hover='popover']").popover();
+        //END POPOVER
+
+    });
+
     //BEGIN MENU SIDEBAR
     $('#sidebar').css('min-height', '100%');
     //END MENU SIDEBAR
@@ -18,14 +32,6 @@ $(function () {
         }
     });
     //END MENU SIDEBAR
-
-    //BEGIN TOOTLIP
-    $("[data-toggle='tooltip'], [data-hover='tooltip']").tooltip();
-    //END TOOLTIP
-
-    //BEGIN POPOVER
-    $("[data-toggle='popover'], [data-hover='popover']").popover();
-    //END POPOVER
 
     //BEGIN BACK TO TOP
     $(window).scroll(function(){

@@ -26,7 +26,7 @@ export class AuthorEditComponent implements OnInit {
   }
 
   save() {
-    this.toastService.activate('success', `Successfully Saved`);
+    this.toastService.success(`Successfully Saved`);
     this.router.navigate(['/authors']);
   }
 
