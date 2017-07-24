@@ -14,10 +14,10 @@ export class BookEditComponent implements OnInit {
 
   private id: any;
 
-  constructor(private router: Router, private route: ActivatedRoute,
-    private toastService: ToastService, private spinnerService: SpinnerService) {
-
-  }
+  constructor(private router: Router, 
+    private route: ActivatedRoute,
+    private toastService: ToastService, 
+    private spinnerService: SpinnerService) { }
 
   ngOnInit() {
     this.id = +this.route.snapshot.params['id'];

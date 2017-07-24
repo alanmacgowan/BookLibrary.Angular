@@ -25,7 +25,7 @@ export class ToastService {
       console.log('toast service already exists');
       return prior;
     } else {
-      console.log('created toast service')
+      console.log('created toast service');
     }
   }
 
