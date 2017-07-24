@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
 import { Router } from '@angular/router';
+import { ModalService } from '../core/modal/modal.service';
+import { ToastService } from '../core/toast/toast.service';
+import { SpinnerService } from '../core/spinner/spinner.service';
 
 @Component({
     selector: 'app-booklist',
@@ -10,8 +13,22 @@ export class BookListComponent implements OnInit {
 
     books: Book[];
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+        private modalService: ModalService,
+        private toastService: ToastService,
+        private spinnerService: SpinnerService) { }
 
+    delete() {
+        let msg = `Do you want to delete this item?`;
+        this.modalService.activate(msg).then(responseOK => {
+            if (responseOK) {
+                this.spinnerService.show();
+                setTimeout(() => {
+                    this.toastService.success(`Successfully Deleted`);
+                    this.spinnerService.hide();
+                }, 3000);
+            }
+        });
     }
 
     ngOnInit() {

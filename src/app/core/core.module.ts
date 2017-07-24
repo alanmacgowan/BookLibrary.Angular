@@ -10,13 +10,15 @@ import { MenuComponent } from './layout/menu.component';
 import { CategoryLabelComponent } from './categorylabel/categorylabel.component';
 import { ToastModule } from './toast/toast.module';
 import { SpinnerModule } from './spinner/spinner.module';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         ToastModule,
-        SpinnerModule
+        SpinnerModule,
+        ModalModule
     ],
     declarations: [
         TitleComponent,
@@ -34,7 +36,8 @@ import { SpinnerModule } from './spinner/spinner.module';
         MenuComponent,
         CategoryLabelComponent,
         ToastModule,
-        SpinnerModule
+        SpinnerModule,
+        ModalModule
     ]
 })
 export class CoreModule {
