@@ -12,8 +12,9 @@ export class SpinnerService {
   spinnerState = this.spinnerSubject.asObservable();
 
   constructor(@Optional() @SkipSelf() prior: SpinnerService) {
-    if (prior) { return prior; }
-    console.log("created spinner service");
+    if (prior) { 
+      return prior; 
+    }
   }
 
   show() {

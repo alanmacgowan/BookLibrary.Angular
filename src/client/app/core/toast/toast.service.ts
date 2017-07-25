@@ -22,10 +22,7 @@ export class ToastService {
 
   constructor( @Optional() @SkipSelf() prior: ToastService) {
     if (prior) {
-      console.log('toast service already exists');
       return prior;
-    } else {
-      console.log('created toast service');
     }
   }
 
