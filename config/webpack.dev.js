@@ -8,7 +8,7 @@ var webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
-
+  debug: true,
   output: {
     path: helpers.root('dist'),
     publicPath: 'http://localhost:8080/',
