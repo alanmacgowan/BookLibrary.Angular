@@ -76,10 +76,10 @@ export class ModalComponent implements OnInit {
       }
     });
 
-    this.modalElement.onclick = () => {
-      this.hideDialog();
-      return this.negativeOnClick(null);
-    };
+    // this.modalElement.onclick = () => {
+    //   this.hideDialog();
+    //   return this.negativeOnClick(null);
+    // };
 
     document.onkeyup = (e: any) => {
       if (e.which === KEY_ESC) {

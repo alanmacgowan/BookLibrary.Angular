@@ -9,8 +9,8 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
-        'vendor': './src/vendor.ts',
-        'app': './src/main.ts' // our angular app
+        'vendor': './src/client/vendor.ts',
+        'app': './src/client/main.ts' // our angular app
     }
     , module: {
         rules: [{
@@ -25,12 +25,12 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            exclude: helpers.root('src', 'app'),
+            exclude: helpers.root('src/client', 'app'),
             use: ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader" })
         },
         {
             test: /\.css$/,
-            include: helpers.root('src', 'app'),
+            include: helpers.root('src/client', 'app'),
             loaders: ['css-to-string-loader', 'css-loader']
         },
         {
@@ -48,7 +48,7 @@ module.exports = {
         {
             test: /\.html$/,
             use: 'raw-loader',
-            exclude: [helpers.root('src/index.html')]
+            exclude: [helpers.root('src/client/index.html')]
         },
         ]
     },
@@ -74,14 +74,14 @@ module.exports = {
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /angular(\\|\/)core(\\|\/)@angular/,
-            helpers.root('src')// location of your src
+            helpers.root('src/client')// location of your src
         ),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './src/client/index.html',
             chunksSortMode: 'dependency'
         }),
         new CopyWebpackPlugin([{
-            from: './src/images',
+            from: './src/client/images',
             to: 'images'
         }]),
         new CleanWebpackPlugin(['dist'], {
