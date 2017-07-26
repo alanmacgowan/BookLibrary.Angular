@@ -13,10 +13,11 @@
     "server": "webpack-dev-server --env=dev --inline --progress --watch --port 8080",
     "start": "npm run server",
     "build": "npm run build:dist",
-    "cleanup": "rimraf src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build dist",
+    "cleanup": "rimraf src/client/*.js src/client/*.js.map src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build aot",
     "ngc": "ngc",
-    "preaot": "ngc -p tsconfig-aot.json",
-    "aot": "npm run cleanup && npm run ngc && webpack --env=aot"
+    "preaot": "npm run cleanup && ngc -p tsconfig-aot.json",
+    "aot": "npm run ngc && webpack --env=aot",
+    "postaot": "npm run cleanup"
   },
   "repository": {
     "type": "git",
