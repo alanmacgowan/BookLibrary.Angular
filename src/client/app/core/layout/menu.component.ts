@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
     ];
   }
 
-  listClick(newValue) {
+  listClick(newValue:MenuItem) {
     this.selectedItem = newValue;
   }
 
