@@ -14,7 +14,7 @@
     "start": "npm run server",
     "build": "npm run build:dist",
     "cleanup": "rimraf src/client/*.js src/client/*.js.map src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build aot",
-    "ngc": "PATH ngc -p",
+    "ngc": "PATH /ngc -p",
     "preaot": "npm run cleanup && ngc tsconfig-aot.json",
     "aot": "npm run ngc && webpack --env=aot",
     "postaot": "npm run cleanup"
