@@ -33,22 +33,22 @@ module.exports = webpackMerge(commonConfig, {
       }
     }),
     new CompressionPlugin({
-         asset: "[path].gz",
-         test: /\.(css|html|js|json|map)(\?{0}(?=\?|$))/,
-         algorithm: "gzip",
-         minRatio: 0.8
-      }),
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'server',
-            analyzerHost: '127.0.0.1',
-            analyzerPort: 8888,
-            reportFilename: 'report.html',
-            defaultSizes: 'parsed',
-            openAnalyzer: true,
-            generateStatsFile: false,
-            statsFilename: 'stats.json',
-            statsOptions: null,
-            logLevel: 'info'
-        })
+      asset: "[path].gz",
+      test: /\.(css|html|js|json|map)(\?{0}(?=\?|$))/,
+      algorithm: "gzip",
+      minRatio: 0.8
+    }),
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'server',
+    //   analyzerHost: '127.0.0.1',
+    //   analyzerPort: 8888,
+    //   reportFilename: 'report.html',
+    //   defaultSizes: 'parsed',
+    //   openAnalyzer: true,
+    //   generateStatsFile: false,
+    //   statsFilename: 'stats.json',
+    //   statsOptions: null,
+    //   logLevel: 'info'
+    // })
   ]
 });
