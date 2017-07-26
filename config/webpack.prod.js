@@ -4,14 +4,17 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+var CompressionPlugin = require('compression-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
-
+  entry: {
+    'vendor': './src/client/vendor.ts',
+    'app': './src/client/main.ts' // our angular app
+  },
   output: {
     path: helpers.root('dist'),
     publicPath: 'http://localhost:801/BooklibraryAngular/',

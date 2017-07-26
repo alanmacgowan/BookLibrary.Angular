@@ -1,0 +1,17 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "src/client/*.js.map": true,
+        "src/client/*.js": true,
+        "src/client/app/*.js.map": true,
+        "src/client/app/*.js": true,
+        "src/client/app/**/*.js.map": true,
+        "src/client/app/**/*.js": true,
+        "src/client/app/**/*.ngfactory.ts": true,
+        "src/client/app/*.ngfactory.js": true,
+        "src/client/app/**/*.ngsummary.json": true,
+        "src/client/app/*.ngfactory.js.map": true,
+        "src/client/app/**/*.metadata.json": true,
+        "src/client/app/**/*.ngstyle.ts": true
+    }
+}

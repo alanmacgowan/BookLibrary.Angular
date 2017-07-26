@@ -8,6 +8,10 @@ var webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
+  entry: {
+    'vendor': './src/client/vendor.ts',
+    'app': './src/client/main.ts' // our angular app
+  },
   output: {
     path: helpers.root('dist'),
     publicPath: 'http://localhost:8080/BookLibraryAngular',
