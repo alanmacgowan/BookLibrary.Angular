@@ -46,3 +46,29 @@ To build the application :
 * `npm run build`
 
 webpack will bundle the application and all necessary files in the  `/dist` folder that you can deploy to the server.
+
+# General
+
+## Directory structure
+
+The directory structure looks like:
+
+```
+.
+├── app
+│   ├── config
+│   │   └── helpers.js
+│   │   └── webpack.aot.js
+│   │   └── webpack.dev.js
+│   │   └── webpack.prod.js
+│   ├── src
+│   │    ├── client
+│   │    │    ├── app
+│   │    │    │    └── author
+│   │    │    │    └── book
+│   │    │    │    ...
+│   │    │    ├── images
+│   │    │    ├── script
+│   │    │    ├── styles
+│   │   └── server
+
