@@ -32,6 +32,7 @@
     "chunk-manifest-webpack-plugin": "^1.1.0",
     "clean-webpack-plugin": "^0.1.16",
     "codelyzer": "^3.1.2",
+    "compression-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "css-to-string-loader": "^0.1.3",
