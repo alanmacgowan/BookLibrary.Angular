@@ -30,7 +30,7 @@ cache:
   directories: node_modules
 
 script:
-  - npm run aot
+  - npm run build
 
 # deploy:
 #   provider: pages
