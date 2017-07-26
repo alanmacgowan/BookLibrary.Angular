@@ -35,7 +35,7 @@ export class ToastComponent implements OnDestroy, OnInit {
     this.show();
   }
 
-  getToasterClass(type){
+  getToasterClass(type:number){
     switch(type){
       case ToasterType.Success:
         return 'toast-success';

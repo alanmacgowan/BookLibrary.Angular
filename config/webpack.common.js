@@ -8,11 +8,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: {
-        'vendor': './src/client/vendor.ts',
-        'app': './src/client/main.ts' // our angular app
-    }
-    , module: {
+
+    module: {
         rules: [{
             test: /\.ts$/,
             enforce: 'pre',

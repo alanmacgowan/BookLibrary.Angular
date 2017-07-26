@@ -4,6 +4,18 @@
 /dist
 /tmp
 /out-tsc
+/build
+
+# aot related
+/aot
+*.map
+*.ngfactory.ts
+*.ngfactory.js
+*.metadata.json
+*.ngsummary.json
+*.ngstyle.ts
+/src/client/app/**/*.js
+/src/client/*.js
 
 # dependencies
 /node_modules
