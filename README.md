@@ -62,10 +62,12 @@ The directory structure looks like:
 .
 ├── app
 │   ├── config
-│   │   └── helpers.js
-│   │   └── webpack.aot.js
-│   │   └── webpack.dev.js
+│   │   ├── helpers.js
+│   │   ├── webpack.aot.js
+│   │   ├── webpack.dev.js
 │   │   └── webpack.prod.js
+│   ├── dist
+│   ├── node_modules
 │   ├── src
 │   │    ├── client
 │   │    │    ├── app
@@ -75,5 +77,10 @@ The directory structure looks like:
 │   │    │    ├── images
 │   │    │    ├── script
 │   │    │    ├── styles
+│   │    │    ├── index.html
+│   │    │    ├── main.aot.ts
+│   │    │    ├── main.ts
+│   │    │    ├── polyfills.ts
+│   │    │    └── vendor.ts
 │   │    └── server
 
