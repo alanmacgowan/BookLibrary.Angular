@@ -1,18 +1,24 @@
 [![Build Status](https://travis-ci.org/alanmacgowan/BookLibrary.Angular.svg?branch=master)](https://travis-ci.org/alanmacgowan/BookLibrary.Angular)
 [![Dependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular)
 [![devDependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular/dev-status.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/alanmacgowan/BookLibrary.Angular/badge.svg?branch=master)](https://coveralls.io/github/alanmacgowan/BookLibrary.Angular?branch=master)
 
 # BookLibrary.Angular
-Base HTML Bootstrap template for BookLibrary sample application
+Angular 2 sample application
 Using:<br/>
-* Angular
+* Angular 2
+* TypeScript
 * Webpack
 * npm
 * Bootstrap
 * JQuery
 * HTML
-* Javascript
-* CSS
+* Travis (CI)
+* Firebase (Hosting)
+
+### Deployed version (Deployed by travis after successful build):
+
+[https://booklibraryangular.firebaseapp.com](https://booklibraryangular.firebaseapp.com])
 
 ### Quick start
 
@@ -57,10 +63,12 @@ The directory structure looks like:
 .
 ├── app
 │   ├── config
-│   │   └── helpers.js
-│   │   └── webpack.aot.js
-│   │   └── webpack.dev.js
+│   │   ├── helpers.js
+│   │   ├── webpack.aot.js
+│   │   ├── webpack.dev.js
 │   │   └── webpack.prod.js
+│   ├── dist
+│   ├── node_modules
 │   ├── src
 │   │    ├── client
 │   │    │    ├── app
@@ -70,5 +78,10 @@ The directory structure looks like:
 │   │    │    ├── images
 │   │    │    ├── script
 │   │    │    ├── styles
-│   │   └── server
+│   │    │    ├── index.html
+│   │    │    ├── main.aot.ts
+│   │    │    ├── main.ts
+│   │    │    ├── polyfills.ts
+│   │    │    └── vendor.ts
+│   │    └── server
 
