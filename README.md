@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/alanmacgowan/BookLibrary.Angular.svg?branch=master)](https://travis-ci.org/alanmacgowan/BookLibrary.Angular)
 [![Dependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular)
 [![devDependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular/dev-status.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/alanmacgowan/BookLibrary.Angular/badge.svg?branch=master)](https://coveralls.io/github/alanmacgowan/BookLibrary.Angular?branch=master)
 
 # BookLibrary.Angular
 Angular 2 sample application
