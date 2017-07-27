@@ -5,14 +5,15 @@
 # BookLibrary.Angular
 Angular 2 sample application
 Using:<br/>
-* Angular
+* Angular 2
+* TypeScript
 * Webpack
 * npm
 * Bootstrap
 * JQuery
 * HTML
-* Javascript
-* CSS
+* Travis (CI)
+* Firebase (Hosting)
 
 ### Deployed version (Deployed by travis after successful build):
 
