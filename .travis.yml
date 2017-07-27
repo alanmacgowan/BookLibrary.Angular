@@ -9,13 +9,6 @@ os:
   - linux
 #  - osx
 
-before_script:
-  - npm i -g npm@^5.3.0 && npm --version
-  - npm install
-
-after_failure:
-  - cat /home/travis/build/alanmacgowan/BookLibrary.Angular/npm-debug.log
-
 branches:
   only: master
 
@@ -29,12 +22,17 @@ notifications:
 cache:
   directories: node_modules
 
+before_script:
+  - npm install -g firebase-tools
+  - npm i -g npm@^5.3.0 && npm --version
+  - npm install
+
 script:
   - npm run build
 
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $pagestoken
-#   on:
-#     branch: master
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN
+
+after_failure:
+  - cat /home/travis/build/alanmacgowan/BookLibrary.Angular/npm-debug.log
+
