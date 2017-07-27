@@ -3,7 +3,7 @@
 [![devDependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular/dev-status.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular#info=devDependencies)
 
 # BookLibrary.Angular
-Base HTML Bootstrap template for BookLibrary sample application
+Angular 2 sample application
 Using:<br/>
 * Angular
 * Webpack
@@ -13,6 +13,10 @@ Using:<br/>
 * HTML
 * Javascript
 * CSS
+
+### Deployed version (Deployed by travis after successful build):
+
+[https://booklibraryangular.firebaseapp.com](https://booklibraryangular.firebaseapp.com])
 
 ### Quick start
 
@@ -70,5 +74,5 @@ The directory structure looks like:
 │   │    │    ├── images
 │   │    │    ├── script
 │   │    │    ├── styles
-│   │   └── server
+│   │    └── server
 
