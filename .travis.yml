@@ -31,7 +31,7 @@ script:
   - npm run build
 
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - firebase deploy --non-interactive --token $FIREBASE_TOKEN
 
 after_failure:
   - cat /home/travis/build/alanmacgowan/BookLibrary.Angular/npm-debug.log
