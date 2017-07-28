@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+var pckg = require('../../../../../package.json');
 
 @Component({
     selector: 'app-footer',
@@ -14,7 +15,7 @@ export class FooterComponent implements OnInit {
     ngOnInit() {
         let d = new Date();
         this.currentYear = d.getFullYear().toString();
-        this.version = "1.0.0";
+        this.version = pckg.version;
     }
 
 }

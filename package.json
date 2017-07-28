@@ -1,6 +1,6 @@
 {
   "name": "booklibrary.angular",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Angular Sample application",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,10 @@
     "ngc": "ngc -p",
     "preaot": "npm run cleanup && ngc tsconfig-aot.json",
     "aot": "npm run ngc && webpack --env=aot",
-    "postaot": "npm run cleanup"
+    "postaot": "npm run cleanup",
+    "prevers": "npm run build",
+    "vers": "npm --no-git-tag-version version patch -f && git add . && git commit -m ",
+    "postvers": ""
   },
   "repository": {
     "type": "git",
