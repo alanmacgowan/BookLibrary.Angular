@@ -11,10 +11,6 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
-  entry: {
-    'vendor': './src/client/vendor.ts',
-    'app': './src/client/main.ts' // our angular app
-  },
   output: {
     path: helpers.root('dist'),
     publicPath: '/',

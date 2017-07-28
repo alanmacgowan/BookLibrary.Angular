@@ -8,23 +8,19 @@ var webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
-  entry: {
-    'vendor': './src/client/vendor.ts',
-    'app': './src/client/main.ts' // our angular app
-  },
   output: {
     path: helpers.root('dist'),
-    publicPath: 'http://localhost:8080/BookLibraryAngular',
+    publicPath: 'http://localhost:8080/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080/BookLibraryAngular' })
+    new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "../dist"),
     historyApiFallback: true,
     quiet: true,
     inline: true,
