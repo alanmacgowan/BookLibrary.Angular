@@ -14,13 +14,12 @@
     "start": "npm run server",
     "build": "npm run build:dist",
     "cleanup": "rimraf src/client/*.js src/client/*.js.map src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build aot",
-    "ngc": "ngc -p",
+    "ngc": "ngc",
     "preaot": "npm run cleanup && ngc tsconfig-aot.json",
-    "aot": "npm run ngc && webpack --env=aot",
+    "aot": "npm run ngc -p && webpack --env=aot",
     "postaot": "npm run cleanup",
-    "prevers": "npm run build",
-    "vers": "npm --no-git-tag-version version patch -f && git add . && git commit -m ",
-    "postvers": ""
+    "precommit": "npm run build",
+    "commit": "npm --no-git-tag-version version patch -f && git add . && git commit -m "
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,7 @@
   "license": "ISC",
   "homepage": "https://github.com/alanmacgowan/BookLibrary.Angular#readme",
   "devDependencies": {
+    "@angular/compiler-cli": "^4.3.2",
     "@angularclass/hmr": "^1.0.1",
     "@angularclass/hmr-loader": "^3.0.2",
     "@types/node": "^6.0.38",

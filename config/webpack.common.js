@@ -88,7 +88,7 @@ module.exports = {
             root: helpers.root('')
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendor', 'app'],
+            name: ['vendor'],
             minChunks: Infinity
         }),
         new webpack.ProvidePlugin({
