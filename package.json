@@ -1,6 +1,6 @@
 {
   "name": "booklibrary.angular",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Angular Sample application",
   "main": "index.js",
   "scripts": {
@@ -14,13 +14,15 @@
     "start": "npm run server",
     "build": "npm run build:dist",
     "cleanup": "rimraf src/client/*.js src/client/*.js.map src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build aot",
-    "ngc": "ngc -p",
+    "ngc": "ngc",
     "preaot": "npm run cleanup && ngc tsconfig-aot.json",
-    "aot": "npm run ngc && webpack --env=aot",
+    "aot": "npm run ngc -p && webpack --env=aot",
     "postaot": "npm run cleanup",
-    "prevers": "npm run build",
-    "vers": "npm --no-git-tag-version version patch -f && git add . && git commit -m ",
-    "postvers": ""
+    "precommit": "npm run build",
+    "commit": "npm --no-git-tag-version version patch -f && git add . && git commit -m ",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m \"updated CHANGELOG.md\" && npm version major && git push origin && git push origin --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
   "license": "ISC",
   "homepage": "https://github.com/alanmacgowan/BookLibrary.Angular#readme",
   "devDependencies": {
+    "@angular/compiler-cli": "^4.3.2",
     "@angularclass/hmr": "^1.0.1",
     "@angularclass/hmr-loader": "^3.0.2",
     "@types/node": "^6.0.38",
@@ -47,6 +50,7 @@
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "generate-changelog": "^1.3.0",
     "html-webpack-plugin": "^2.29.0",
     "json-loader": "^0.5.4",
     "open-browser-webpack-plugin": "0.0.5",
