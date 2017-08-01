@@ -11,6 +11,7 @@ import { CategoryLabelComponent } from './categorylabel/categorylabel.component'
 import { ToastModule } from './toast/toast.module';
 import { SpinnerModule } from './spinner/spinner.module';
 import { ModalModule } from './modal/modal.module';
+import { ExceptionService } from './exception.service';
 
 @NgModule({
     imports: [
@@ -38,6 +39,9 @@ import { ModalModule } from './modal/modal.module';
         ToastModule,
         SpinnerModule,
         ModalModule
+    ],
+    providers: [
+        ExceptionService
     ]
 })
 export class CoreModule {
