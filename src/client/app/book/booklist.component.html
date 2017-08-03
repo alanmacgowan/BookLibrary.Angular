@@ -22,7 +22,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr *ngFor="let book of books">
                         <td>
                             <button type="button" (click)="editBook(book)" class="btn btn-primary btn-sm" data-hover="tooltip" title="Edit"><i class="fa fa-pencil"></i></button>
@@ -32,9 +31,10 @@
                         <td>{{book.id}}</td>
                         <td>{{book.title}}</td>
                         <td>{{book.author}}</td>
-                        <td><app-categorylabel [category]="book.category"></app-categorylabel></td>
+                        <td>
+                            <app-categorylabel [category]="book.category"></app-categorylabel>
+                        </td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
