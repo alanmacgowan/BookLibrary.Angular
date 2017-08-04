@@ -9,6 +9,7 @@ export class FooterComponent implements OnInit {
 
     currentYear: string;
     version: string;
+    environment: string;
 
     constructor() { }
 
@@ -16,6 +17,7 @@ export class FooterComponent implements OnInit {
         let d = new Date();
         this.currentYear = d.getFullYear().toString();
         this.version = pckg.version;
+        this.environment = process.env.ENV;
     }
 
 }
