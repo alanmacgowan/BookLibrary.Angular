@@ -1,0 +1,6 @@
+{
+    "databaseConfig": {
+        "host": "alan:password@ds137090.mlab.com:37090",
+        "database": "booklibrary_angular"
+    }
+}
