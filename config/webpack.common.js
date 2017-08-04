@@ -84,6 +84,10 @@ module.exports = {
             from: './src/client/images',
             to: 'images'
         }]),
+        new CopyWebpackPlugin([{
+            from: './src/server',
+            to: 'server'
+        }]),
         new CleanWebpackPlugin(['dist'], {
             root: helpers.root('')
         }),

@@ -1,0 +1,6 @@
+{
+  "name": "BookLibraryAngular",
+  "description": "Sample Angular Application",
+  "repository": "https://github.com/alanmacgowan/BookLibrary.Angular",
+  "keywords": ["node", "express", "static"]
+}
