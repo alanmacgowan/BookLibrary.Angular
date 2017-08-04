@@ -6,6 +6,8 @@ var path = require('path');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var webpack = require('webpack');
 
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
   output: {
@@ -16,6 +18,11 @@ module.exports = webpackMerge(commonConfig, {
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'ENV': JSON.stringify(ENV)
+      }
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
   ],
