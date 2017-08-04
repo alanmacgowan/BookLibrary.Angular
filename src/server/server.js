@@ -15,8 +15,10 @@ class Server {
     }
 
     start() {
-        app.listen(port, (err) => {
-            console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, port);
+        app.set('port', (process.env.PORT || port));
+
+        app.listen(app.get('port'), (err) => {
+            console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, app.get('port'));
         });
     }
 
