@@ -4,7 +4,7 @@ import { Book } from '../models/book.model';
 import { CONFIG, ExceptionService, ToastService, SpinnerService } from '../core';
 import { Observable } from "rxjs/Observable";
 
-let booksUrl = CONFIG.baseUrls.books;
+let booksUrl = CONFIG.baseUrl + CONFIG.apiUrls.books;
 
 @Injectable()
 export class BookService {
@@ -28,7 +28,7 @@ export class BookService {
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json ? res.json() : null;
-        return <T>(body && body.data || {});
+        return <T>(body && body || {});
     }
 
 }
