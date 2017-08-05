@@ -1,9 +1,9 @@
 // Module dependencies
 const mongoose = require('mongoose'),
-      dbConfig = require('./configLoader').databaseConfig,
-      connectionString = 'mongodb://' + dbConfig.host + '/' + dbConfig.database;
-      
-let   connection = null;
+    CONFIG = require('../../../config/config.js'),
+    connectionString = 'mongodb://' + CONFIG.dbHost + '/' + CONFIG.dbName;
+
+let connection = null;
 
 class Database {
 
@@ -21,7 +21,7 @@ class Database {
             console.log('Error connecting to MongoDB: ' + err);
             callback(err, false);
         });
-        
+
         mongoose.connection.once('open', () => {
             console.log('We have connected to mongodb');
             callback(null, true);

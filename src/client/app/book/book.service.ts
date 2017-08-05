@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response  } from '@angular/http';
 import { Book } from '../models/book.model';
-import { CONFIG, ExceptionService, ToastService, SpinnerService } from '../core';
+import { ExceptionService, ToastService, SpinnerService } from '../core';
 import { Observable } from "rxjs/Observable";
+import * as CONFIG from '../../../../config/config';
 
 let booksUrl = CONFIG.baseUrl + CONFIG.apiUrls.books;
 
