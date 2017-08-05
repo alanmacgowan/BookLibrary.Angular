@@ -1,4 +1,3 @@
-export * from './config';
 export * from './exception.service';
 export * from './modal/modal.service';
 export * from './rxjs-extensions';
