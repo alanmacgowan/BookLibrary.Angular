@@ -12,6 +12,7 @@ import { ToastModule } from './toast/toast.module';
 import { SpinnerModule } from './spinner/spinner.module';
 import { ModalModule } from './modal/modal.module';
 import { ExceptionService } from './exception.service';
+import { BaseService } from './base.service';
 
 @NgModule({
     imports: [
@@ -41,7 +42,8 @@ import { ExceptionService } from './exception.service';
         ModalModule
     ],
     providers: [
-        ExceptionService
+        ExceptionService,
+        BaseService
     ]
 })
 export class CoreModule {
