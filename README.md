@@ -11,11 +11,15 @@ Using:<br/>
 * TypeScript
 * Webpack
 * npm
+* Node js
+* Express
+* MongoDB
 * Bootstrap
 * JQuery
 * HTML
-* Travis (CI)
-* Firebase (Hosting)
+* Travis & Appveyor (CI)
+* Firebase (Hosting UI - Angular)
+* Heroku (Hosting API - Node js)
 
 ### Deployed version (Deployed by travis after successful build):
 
