@@ -4,7 +4,7 @@
 [![devDependency Status](https://david-dm.org/alanmacgowan/BookLibrary.Angular/dev-status.svg)](https://david-dm.org/alanmacgowan/BookLibrary.Angular#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/alanmacgowan/BookLibrary.Angular/badge.svg?branch=master)](https://coveralls.io/github/alanmacgowan/BookLibrary.Angular?branch=master)
 
-# BookLibrary.Angular
+# BookLibrary.Angular [In Progress]
 Angular 2 sample application
 Using:<br/>
 * Angular 2
@@ -14,6 +14,7 @@ Using:<br/>
 * Node js
 * Express
 * MongoDB
+* Mongoose
 * Bootstrap
 * JQuery
 * HTML
