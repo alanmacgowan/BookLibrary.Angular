@@ -21,6 +21,9 @@ Using:<br/>
 * Firebase (Hosting UI - Angular)
 * Heroku (Hosting API - Node js)
 
+## Diagram
+<img src="https://github.com/alanmacgowan/BookLibrary.Angular/blob/master/BookLibrary%20.jpg" />
+
 ### Deployed version (Deployed by travis after successful build):
 
 [https://booklibraryangular.firebaseapp.com](https://booklibraryangular.firebaseapp.com])
