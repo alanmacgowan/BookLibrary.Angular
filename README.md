@@ -41,16 +41,16 @@ $ cd myapp
 # install dependencies with npm
 $ npm install
 
-# start the server
-$ npm run server
+# build the app and start the server
+$ npm start
 ```
-This will open a browser in [http://localhost:8080/](http://localhost:8080/]).
+This will open a browser in [http://localhost:8080/](http://localhost:8080/]) and start the Express server on http://localhost:3000/.
 
 ## DEV
 
 After installing all dependencies with npm you can start the server:
 
-* `npm run server`
+* `npm start`
 
 It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload automatically, you don't need to reload the page.
 
