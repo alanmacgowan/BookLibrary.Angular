@@ -13,6 +13,7 @@ import { SpinnerModule } from './spinner/spinner.module';
 import { ModalModule } from './modal/modal.module';
 import { ExceptionService } from './exception.service';
 import { BaseService } from './base.service';
+import { EntityService } from './entity.service';
 
 @NgModule({
     imports: [
@@ -43,7 +44,8 @@ import { BaseService } from './base.service';
     ],
     providers: [
         ExceptionService,
-        BaseService
+        BaseService, 
+        EntityService
     ]
 })
 export class CoreModule {

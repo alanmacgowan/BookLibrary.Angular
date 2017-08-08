@@ -25,12 +25,12 @@
                     <tr *ngFor="let book of books">
                         <td>
                             <button type="button" (click)="editBook(book)" class="btn btn-primary btn-sm" data-hover="tooltip" title="Edit"><i class="fa fa-pencil"></i></button>
-                            <button type="button" (click)="delete()" class="btn btn-danger btn-sm" data-hover="tooltip" title="Delete"><i class="fa fa-trash-o"></i></button>
+                            <button type="button" (click)="delete(book)" class="btn btn-danger btn-sm" data-hover="tooltip" title="Delete"><i class="fa fa-trash-o"></i></button>
                             <button type="button" class="btn btn-blue btn-sm" data-hover="tooltip" title="Download"><i class="fa fa-download"></i></button>
                         </td>
-                        <td>{{book.id}}</td>
+                        <td>{{book._id}}</td>
                         <td>{{book.title}}</td>
-                        <td>{{book.author}}</td>
+                        <td>{{book.authors}}</td>
                         <td>
                             <app-categorylabel [category]="book.category"></app-categorylabel>
                         </td>

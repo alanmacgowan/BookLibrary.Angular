@@ -1,7 +1,7 @@
 <app-title title="Books">
 </app-title>
 <br/>
-<div id="tab-general">
+<div id="tab-general"  *ngIf="book"> 
     <div class="row mbl">
         <div class="col-lg-12">
             <div class="row">
@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             Book</div>
                         <div class="panel-body pan">
-                            <form action="">
+                            <form #bookForm="ngForm" (ngSubmit)="save()">
                                 <div class="form-body pal">
 
                                     <div class="row">
@@ -23,26 +23,26 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="Title" class="control-label">
+                                                <label for="title" class="control-label">
                                                             Title</label>
                                                 <div class="input-icon right">
-                                                    <input id="Title" type="text" placeholder="" class="form-control" /></div>
+                                                    <input name="title" type="text" placeholder="" class="form-control" #title="ngModel" [(ngModel)]="editBook.title" /></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ISBN" class="control-label">
+                                                        <label for="isbn" class="control-label">
                                                                     ISBN</label>
                                                         <div class="input-icon right">
-                                                            <input id="ISBN" type="text" placeholder="" class="form-control" /></div>
+                                                            <input name="isbn" type="text" placeholder="" class="form-control" #isbn="ngModel" [(ngModel)]="editBook.isbn" /></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="Authors" class="control-label">
+                                                        <label for="authors" class="control-label">
                                                                     Authors</label>
                                                         <div class="input-icon right">
-                                                            <input id="Authors" type="text" placeholder="" class="form-control" /></div>
+                                                            <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" /></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,21 +81,21 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="Price" class="control-label">
+                                                        <label for="price" class="control-label">
                                                             Price</label>
-                                                        <input id="Price" type="text" placeholder="" class="form-control" /></div>
+                                                        <input name="price" type="text" placeholder="" class="form-control" #price="ngModel" [(ngModel)]="editBook.price" /></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="Pages" class="control-label">
+                                                        <label for="pages" class="control-label">
                                                             Pages</label>
-                                                        <input id="Pages" type="text" placeholder="" class="form-control" /></div>
+                                                        <input name="pages" type="text" placeholder="" class="form-control" #pages="ngModel" [(ngModel)]="editBook.pages" /></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="PublishDate" class="control-label">
+                                                        <label for="publishDate" class="control-label">
                                                             Publish Date</label>
-                                                        <input id="PublishDate" type="text" placeholder="" class="form-control" /></div>
+                                                        <input name="publishDate" type="text" placeholder="" class="form-control" #publishDate="ngModel" [(ngModel)]="editBook.publishDate" /></div>
                                                 </div>
                                             </div>
 
@@ -115,9 +115,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="Description" class="control-label">
+                                        <label for="description" class="control-label">
                                                             Description</label>
-                                        <textarea id="Description" rows="5" class="form-control"></textarea>
+                                        <textarea name="description" rows="5" class="form-control" #description="ngModel" [(ngModel)]="editBook.description"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group mbn">
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="form-actions text-right pal">
-                                    <button type="button" class="btn btn-green" data-hover="tooltip" (click)="save()" title="Save">Save</button>&nbsp;
+                                    <button type="submit" class="btn btn-green" data-hover="tooltip"  [disabled]="!bookForm.valid" title="Save">Save</button>&nbsp;
                                     <button type="reset" class="btn btn-danger" data-hover="tooltip" (click)="cancelSave()" title="Cancel">Cancel</button>
                                 </div>
                             </form>

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book.model';
 import { Router } from '@angular/router';
-import { ModalService } from '../core/modal/modal.service';
-import { ToastService } from '../core/toast/toast.service';
-import { SpinnerService } from '../core/spinner/spinner.service';
 import { BookService } from "./book.service";
+import { ModalService, ToastService, SpinnerService } from '../core';
 
 @Component({
     selector: 'app-booklist',
@@ -29,7 +27,6 @@ export class BookListComponent implements OnInit {
                 this.books = books;
             },
             error => {
-                console.log('error occurred here');
                 console.log(error);
             },
             () => {
@@ -37,15 +34,20 @@ export class BookListComponent implements OnInit {
             });
     }
 
-    delete() {
+    delete(book: Book) {
         let msg = `Do you want to delete this item?`;
         this.modalService.activate(msg).then(responseOK => {
             if (responseOK) {
-                this.spinnerService.show();
-                setTimeout(() => {
-                    this.toastService.success(`Successfully Deleted`);
-                    this.spinnerService.hide();
-                }, 3000);
+                this.bookService.deleteBook(book)
+                    .subscribe(book => { },
+                    error => {
+                        this.toastService.error(`There was an error processing the operation`);
+                        console.log(error);
+                    },
+                    () => {
+                        this.toastService.success(`Successfully Deleted`);
+                        this.getBooks();
+                    });
             }
         });
     }
@@ -55,7 +57,7 @@ export class BookListComponent implements OnInit {
     }
 
     editBook(book: Book) {
-        let link = ['/books', book.id];
+        let link = ['/books', book._id];
         this.router.navigate(link);
     }
 }
