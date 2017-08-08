@@ -13,11 +13,27 @@ export class BookService extends BaseService {
         protected toastService: ToastService,
         protected spinnerService: SpinnerService) {
         super(http, exceptionService, toastService, spinnerService);
-        this.getUrl = CONFIG.baseUrl + CONFIG.apiUrls.books;
+        this.url = CONFIG.baseUrl + CONFIG.apiUrls.books;
     }
 
     getBooks() {
         return this.get<Book>();
     }
 
+    getBook(id: string) {
+        return this.getOne<Book>(id);
+    }
+
+    updateBook(book: Book) {
+        return this.update<Book>(book);
+    }
+
+    addBook(book: Book) {
+        return this.add<Book>(book);
+    }
+
+    deleteBook(book: Book) {
+        return this.delete<Book>(book);
+    }
+    
 }

@@ -1,6 +1,8 @@
-export class Author {
+import { IEntity } from '../core/IEntity';
+
+export class Author implements IEntity {
     constructor(
-        public id: number,
+        public _id: string,
         public firstName: string,
         public lastName: string,
         public birthDate: Date,

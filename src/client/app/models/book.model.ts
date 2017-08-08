@@ -1,6 +1,8 @@
-export class Book {
+import { IEntity } from '../core/IEntity';
+
+export class Book implements IEntity {
     constructor(
-        public id: number,
+        public _id: string,
         public title: string,
         public author: string,
         public description: string,

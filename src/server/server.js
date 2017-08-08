@@ -1,6 +1,9 @@
 const express = require('express'),
     router = require('./routes/router'),
     database = require('./lib/database'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    errorhandler = require('errorhandler'),
     app = express(),
     port = 3000;
 
@@ -30,6 +33,11 @@ class Server {
             res.setHeader('Access-Control-Allow-Credentials', true);
             next();
         });
+
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(bodyParser.json());
+        app.use(errorhandler());
+        app.use(cookieParser());
 
         process.on('uncaughtException', (err) => {
             if (err) console.log(err, err.stack);

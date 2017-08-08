@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = [
-      { caption: 'Dashboard', link: ['/dashboard'], icon: 'fa fa-tachometer fa-fw' },
+      { caption: 'Dashboard', link: ['/'], icon: 'fa fa-tachometer fa-fw' },
       { caption: 'Books', link: ['/books'], icon: 'fa fa-book fa-fw' },
       { caption: 'Authors', link: ['/authors'], icon: 'fa fa-edit fa-fw' },
       { caption: 'Profile', link: ['/profile'], icon: 'fa fa-cog fa-fw' }
