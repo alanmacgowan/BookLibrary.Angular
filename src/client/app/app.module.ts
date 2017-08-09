@@ -12,7 +12,6 @@ import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
 import { ProfileModule } from './profile/profile.module';
 import { LoginModule } from './login/login.module';
-import { Logger } from 'angular2-logger/core';
 
 @NgModule({
   imports: [
@@ -31,7 +30,6 @@ import { Logger } from 'angular2-logger/core';
     AppComponent,
     PageNotFoundComponent
   ],
-  providers: [Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule {
