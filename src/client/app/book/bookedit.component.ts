@@ -20,8 +20,7 @@ export class BookEditComponent implements OnInit {
     private toastService: ToastService,
     private spinnerService: SpinnerService,
     private entityService: EntityService,
-    private bookService: BookService,
-    private _logger: Logger) { }
+    private bookService: BookService) { }
 
   isAddMode() { return this.id === 'new'; }
 
@@ -71,7 +70,7 @@ export class BookEditComponent implements OnInit {
         .subscribe((ret) => {
           if (ret.error) {
             this.toastService.error(`There was an error processing the operation`);
-            this._logger.error('ERROR: ' + ret.error);
+            console.error('ERROR: ' + ret.error);
           } else {
             this.setEditBook(book);
             this.toastService.success(`Successfully added ${book.title}`);
@@ -80,14 +79,14 @@ export class BookEditComponent implements OnInit {
         },
         error => {
           this.toastService.error(`There was an error processing the operation`);
-          this._logger.error('ERROR: ' + error);
+          console.error('ERROR: ' + error);
         });
     } else {
       this.bookService.updateBook(this.book)
         .subscribe((ret) => {
           if (ret.error) {
             this.toastService.error(`There was an error processing the operation`);
-            this._logger.error('ERROR: ' + ret.error);
+            console.error('ERROR: ' + ret.error);
           } else {
             this.setEditBook(book);
             this.toastService.success(`Successfully saved ${book.title}`);
@@ -96,7 +95,7 @@ export class BookEditComponent implements OnInit {
         },
         error => {
           this.toastService.error(`There was an error processing the operation`);
-          this._logger.error('ERROR: ' + error);
+          console.error('ERROR: ' + error);
         });
     }
   }
