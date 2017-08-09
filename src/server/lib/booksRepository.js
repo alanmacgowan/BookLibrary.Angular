@@ -7,26 +7,26 @@ class BooksRepository {
     // get all the Books
     getBooks(callback) {
         console.log('*** BooksRepository.getBooks');
-        Book.find({}, (err, books) => {
-            if (err) {
+        Book.find({}).exec()
+            .then(books => {
+                callback(null, { books: books });
+            })
+            .catch(err => {
                 console.log(`*** BooksRepository.getBooks error: ${err}`);
                 return callback(err);
-            }
-            callback(null, {
-                books: books
             });
-        });
     }
 
     getBook(id, callback) {
         console.log('*** BooksRepository.getBook');
-        Book.findById(id, (err, book) => {
-            if (err) {
+        Book.findById(id).exec()
+            .then(book => {
+                callback(null, book);
+            })
+            .catch(err => {
                 console.log(`*** BooksRepository.getBook error: ${err}`);
                 return callback(err);
-            }
-            callback(null, book);
-        });
+            });
     }
 
     insertBook(body, callback) {
@@ -46,14 +46,14 @@ class BooksRepository {
         book.publisher = body.publisher;
         book.category = body.category;
 
-        book.save((err, book) => {
-            if (err) {
+        book.save()
+            .then(book => {
+                callback(null, book);
+            })
+            .catch(err => {
                 console.log(`*** BooksRepository.insertBook error: ${err}`);
-                return callback(err, null);
-            }
-
-            callback(null, book);
-        });
+                return callback(err);
+            });
     }
 
     updateBook(id, body, callback) {
@@ -77,27 +77,28 @@ class BooksRepository {
             book.publisher = body.publisher || book.publisher;
             book.category = body.category || book.category;
 
-            book.save((err, book) => {
-                if (err) {
+            book.save()
+                .then(book => {
+                    callback(null, book);
+                })
+                .catch(err => {
                     console.log(`*** BooksRepository.updateBook error: ${err}`);
-                    return callback(err, null);
-                }
-
-                callback(null, book);
-            });
+                    return callback(err);
+                });
 
         });
     }
 
     deleteBook(id, callback) {
         console.log('*** BooksRepository.deleteBook');
-        Book.remove({ '_id': id }, (err, book) => {
-            if (err) {
+        Book.remove({ '_id': id })
+            .then(book => {
+                callback(null, book);
+            })
+            .catch(err => {
                 console.log(`*** BooksRepository.deleteBook error: ${err}`);
-                return callback(err, null);
-            }
-            callback(null, book);
-        });
+                return callback(err);
+            });
     }
 
 

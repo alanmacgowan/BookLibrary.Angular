@@ -36,7 +36,7 @@ export class BaseService {
     update<T extends IEntity>(entity: T) {
         let body = JSON.stringify(entity);
         this.spinnerService.show();
-        return <Observable<T>>this.http
+        return this.http
             .put(`${this.url}/${entity._id}`, body, this.setRequestOptions())
             .map(res => this.extractData<T>(res))
             .catch(this.exceptionService.catchBadResponse)
@@ -46,9 +46,9 @@ export class BaseService {
     add<T>(entity: T) {
         let body = JSON.stringify(entity);
         this.spinnerService.show();
-        return <Observable<T>>this.http
+        return this.http
             .post(`${this.url}`, body, this.setRequestOptions())
-            .map(res => <T>res.json().data)
+            .map(res => this.extractData<T>(res))
             .catch(this.exceptionService.catchBadResponse)
             .finally(() => this.spinnerService.hide());
     }
