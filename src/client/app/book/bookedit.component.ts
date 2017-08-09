@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Book } from '../models/book.model';
 import { BookService } from './book.service';
 import { EntityService, ToastService, SpinnerService } from '../core';
+import { Logger } from 'angular2-logger/core';
 
 @Component({
   selector: 'app-bookedit',
@@ -19,7 +20,8 @@ export class BookEditComponent implements OnInit {
     private toastService: ToastService,
     private spinnerService: SpinnerService,
     private entityService: EntityService,
-    private bookService: BookService) { }
+    private bookService: BookService,
+    private _logger: Logger) { }
 
   isAddMode() { return this.id === 'new'; }
 
@@ -66,27 +68,37 @@ export class BookEditComponent implements OnInit {
     let book = this.book = this.entityService.merge(this.book, this.editBook);
     if (this.isAddMode()) {
       this.bookService.addBook(book)
-        .subscribe(book => { },
+        .subscribe((ret) => {
+          if (ret.error) {
+            this.toastService.error(`There was an error processing the operation`);
+            this._logger.error('ERROR: ' + ret.error);
+          } else {
+            this.setEditBook(book);
+            this.toastService.success(`Successfully added ${book.title}`);
+            this.gotoBooks();
+          }
+        },
         error => {
           this.toastService.error(`There was an error processing the operation`);
-          console.log(error);
+          this._logger.error('ERROR: ' + error);
+        });
+    } else {
+      this.bookService.updateBook(this.book)
+        .subscribe((ret) => {
+          if (ret.error) {
+            this.toastService.error(`There was an error processing the operation`);
+            this._logger.error('ERROR: ' + ret.error);
+          } else {
+            this.setEditBook(book);
+            this.toastService.success(`Successfully saved ${book.title}`);
+            this.gotoBooks();
+          }
         },
-        () => {
-          this.setEditBook(book);
-          this.toastService.success(`Successfully added ${book.title}`);
-          this.gotoBooks();
+        error => {
+          this.toastService.error(`There was an error processing the operation`);
+          this._logger.error('ERROR: ' + error);
         });
     }
-    this.bookService.updateBook(this.book)
-      .subscribe(book => { },
-      error => {
-        this.toastService.error(`There was an error processing the operation`);
-        console.log(error);
-      },
-      () => {
-        this.toastService.success(`Successfully saved ${this.book.title}`);
-        this.gotoBooks();
-      });
   }
 
 }

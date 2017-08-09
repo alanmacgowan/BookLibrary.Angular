@@ -9,8 +9,8 @@ export interface ToastMessage {
 export class ToasterType {
   static Success = 1;
   static Info = 2;
-  static Warning: 3;
-  static Error: 4;
+  static Warning = 3;
+  static Error = 4;
 }
 
 @Injectable()

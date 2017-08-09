@@ -26,7 +26,7 @@
                                                 <label for="title" class="control-label">
                                                             Title</label>
                                                 <div class="input-icon right">
-                                                    <input name="title" type="text" placeholder="" class="form-control" #title="ngModel" [(ngModel)]="editBook.title" required/>
+                                                    <input name="title" type="text" placeholder="" class="form-control" #title="ngModel" [(ngModel)]="editBook.title" required />
                                                     <div class="alert alert-danger" [hidden]="title.untouched || title.valid">Title is required</div>
                                                 </div>
                                             </div>
@@ -36,7 +36,9 @@
                                                         <label for="isbn" class="control-label">
                                                                     ISBN</label>
                                                         <div class="input-icon right">
-                                                            <input name="isbn" type="text" placeholder="" class="form-control" #isbn="ngModel" [(ngModel)]="editBook.isbn" /></div>
+                                                            <input name="isbn" type="text" placeholder="" class="form-control" #isbn="ngModel" [(ngModel)]="editBook.isbn" required />
+                                                            <div class="alert alert-danger" [hidden]="isbn.untouched || isbn.valid">ISBN is required</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -44,7 +46,9 @@
                                                         <label for="authors" class="control-label">
                                                                     Authors</label>
                                                         <div class="input-icon right">
-                                                            <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" /></div>
+                                                            <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" required />
+                                                            <div class="alert alert-danger" [hidden]="authors.untouched || authors.valid">Authors is required</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
