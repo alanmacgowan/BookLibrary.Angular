@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Book } from '../models/book.model';
 import { BookService } from './book.service';
 import { EntityService, ToastService, SpinnerService } from '../core';
-import { Logger } from 'angular2-logger/core';
 
 @Component({
   selector: 'app-bookedit',
