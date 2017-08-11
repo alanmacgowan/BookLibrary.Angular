@@ -1,4 +1,3 @@
-// Module dependencies
 const mongoose = require('mongoose'),
     CONFIG = require('../../../config/config.js'),
     connectionString = 'mongodb://' + CONFIG.dbHost + '/' + CONFIG.dbName;

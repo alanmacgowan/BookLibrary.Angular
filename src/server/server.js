@@ -5,6 +5,7 @@ const express = require('express'),
     cookieParser = require('cookie-parser'),
     errorhandler = require('errorhandler'),
     app = express(),
+    seeder = require('./lib/dbSeeder'),
     port = 3000;
 
 class Server {
@@ -12,9 +13,9 @@ class Server {
     constructor() {
         this.initExpressMiddleWare();
         this.initCustomMiddleware();
-        this.initDbSeeder();
         this.initRoutes();
         this.start();
+        this.initDbSeeder();
     }
 
     start() {
@@ -63,9 +64,10 @@ class Server {
 
     initDbSeeder() {
         database.open(() => {
-            //if (process.env.NODE_ENV === 'development') {
-            //  seeder.init();
-            //} 
+            console.log('database open: ' + process.env.NODE_ENV + '----');
+            if (process.env.NODE_ENV == 'development') {
+                seeder.init();
+            }
         });
     }
 

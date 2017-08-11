@@ -120,11 +120,7 @@
     display: block;
   }
 }
-@media only screen and (min-width: 641px) and (max-width: 1280px) {
-  .news-update-box {
-    display: none;
-  }
-}
+
 @media only screen and (min-width: 1281px) and (max-width: 1520px) {
   #topbar #topbar-search {
     width: 200px;
@@ -134,8 +130,5 @@
   }
   #topbar .navbar-top-links li > a {
     padding: 15px 15px;
-  }
-  .news-update-box {
-    width: 300px;
   }
 }
