@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
         let d = new Date();
         this.currentYear = d.getFullYear().toString();
         this.version = pckg.version;
-        this.environment = process.env.ENV;
+        this.environment = process.env.NODE_ENV;
     }
 
 }
