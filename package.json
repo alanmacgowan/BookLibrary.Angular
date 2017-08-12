@@ -12,7 +12,7 @@
     "build:dist": "webpack --env=prod --progress --profile --colors",
     "dev": "webpack-dev-server --env=dev --inline --progress --watch --port 8080",
     "start": "set NODE_ENV=development&& concurrently \"npm run dev\" \"npm run server\" ",
-    "server": "nodemon src/server/server.js",
+    "server": "nodemon --inspect src/server/server.js",
     "build": "npm run build:dist",
     "cleanup": "rimraf src/client/*.js src/client/*.js.map src/client/app/**/*.ngfactory.ts src/client/app/**/*.js src/client/app/**/*.js.map src/client/app/**/*.metadata.json src/client/app/**/*.ngstyle.ts src/client/app/**/*.ngsummary.json build aot",
     "ngc": "ngc",

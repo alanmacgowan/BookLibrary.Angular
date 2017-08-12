@@ -18,6 +18,9 @@ module.exports = webpackMerge(commonConfig, {
     chunkFilename: "[name].[chunkhash].js"
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: helpers.root('')
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
     }),

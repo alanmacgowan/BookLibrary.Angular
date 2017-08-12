@@ -88,9 +88,6 @@ module.exports = {
             from: './src/server',
             to: 'server'
         }]),
-        new CleanWebpackPlugin(['dist'], {
-            root: helpers.root('')
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendor'],
             minChunks: Infinity
