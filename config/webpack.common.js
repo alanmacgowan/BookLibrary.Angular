@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var helpers = require('./helpers');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
