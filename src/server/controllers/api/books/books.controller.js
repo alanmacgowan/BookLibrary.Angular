@@ -5,6 +5,7 @@ class BooksController {
 
     constructor(router) {
         router.get('/', this.getBooks.bind(this));
+        router.get('/page/:skip/:top', this.getBooksPage.bind(this));        
         router.get('/:id', this.getBook.bind(this));
         router.post('/', this.insertBook.bind(this));
         router.put('/:id', this.updateBook.bind(this));
@@ -20,6 +21,24 @@ class BooksController {
             } else {
                 console.log('*** getBooks ok');
                 res.json(data.books);
+            }
+        });
+    }
+
+    getBooksPage(req, res) {
+        console.log('*** getBooksPage');
+        const topVal = req.params.top,
+            skipVal = req.params.skip,
+            top = (isNaN(topVal)) ? 10 : +topVal,
+            skip = (isNaN(skipVal)) ? 0 : +skipVal;
+
+        booksRepo.getPagedBooks(skip, top, (err, data) => {
+            if (err) {
+                console.log('*** getBooksPage error: ' + util.inspect(err));
+                res.json(null);
+            } else {
+                console.log('*** getBooksPage ok');
+                res.json(data);
             }
         });
     }
@@ -42,7 +61,7 @@ class BooksController {
 
     insertBook(req, res) {
         console.log('*** insertBook: ' + JSON.stringify(req.body));
-  
+
         booksRepo.insertBook(req.body, (err, book) => {
             if (err) {
                 console.log('*** booksRepo.insertBook error: ' + util.inspect(err));

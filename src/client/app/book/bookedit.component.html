@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             Book</div>
                         <div class="panel-body pan">
-                            <form #bookForm="ngForm" (ngSubmit)="save()">
+                            <form #bookForm="ngForm" (ngSubmit)="save()" class="editForm" novalidate>
                                 <div class="form-body pal">
 
                                     <div class="row">
@@ -26,8 +26,11 @@
                                                 <label for="title" class="control-label">
                                                             Title</label>
                                                 <div class="input-icon right">
-                                                    <input name="title" type="text" placeholder="" class="form-control" #title="ngModel" [(ngModel)]="editBook.title" required />
-                                                    <div class="alert alert-danger" [hidden]="title.untouched || title.valid">Title is required</div>
+                                                    <input name="title" type="text" placeholder="" class="form-control" #title="ngModel" [(ngModel)]="editBook.title" required
+                                                    />
+                                                    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                                                        <span class="alert-danger">Title is required</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -37,7 +40,9 @@
                                                                     ISBN</label>
                                                         <div class="input-icon right">
                                                             <input name="isbn" type="text" placeholder="" class="form-control" #isbn="ngModel" [(ngModel)]="editBook.isbn" required />
-                                                            <div class="alert alert-danger" [hidden]="isbn.untouched || isbn.valid">ISBN is required</div>
+                                                            <div *ngIf="isbn.invalid && (isbn.dirty || isbn.touched)">
+                                                                <span class="alert-danger">ISBN is required</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -47,7 +52,9 @@
                                                                     Authors</label>
                                                         <div class="input-icon right">
                                                             <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" required />
-                                                            <div class="alert alert-danger" [hidden]="authors.untouched || authors.valid">Authors is required</div>
+                                                            <div *ngIf="authors.invalid && (authors.dirty || authors.touched)">
+                                                                <span class="alert-danger">Authors is required</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

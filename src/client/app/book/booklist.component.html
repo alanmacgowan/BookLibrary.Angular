@@ -8,36 +8,9 @@
 
     <br/>
 
-    <div class="panel panel-green">
-        <div class="panel-heading">Books</div>
-        <div class="panel-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th style="width:20%;">Action</th>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let book of books">
-                        <td>
-                            <button type="button" (click)="editBook(book)" class="btn btn-primary btn-sm" data-hover="tooltip" title="Edit"><i class="fa fa-pencil"></i></button>
-                            <button type="button" (click)="delete(book)" class="btn btn-danger btn-sm" data-hover="tooltip" title="Delete"><i class="fa fa-trash-o"></i></button>
-                            <button type="button" class="btn btn-blue btn-sm" data-hover="tooltip" title="Download"><i class="fa fa-download"></i></button>
-                        </td>
-                        <td>{{book._id}}</td>
-                        <td>{{book.title}}</td>
-                        <td>{{book.authors}}</td>
-                        <td>
-                            <app-categorylabel [category]="book.category"></app-categorylabel>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+
+    <books-grid [books]="books" (itemEdit)="itemEdit($event)" (itemDelete)="itemDelete($event)"></books-grid>
+
+    <pagination [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)"></pagination>
 
 </div>
