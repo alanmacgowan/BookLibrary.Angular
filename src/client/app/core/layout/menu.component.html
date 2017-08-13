@@ -5,7 +5,7 @@
 
             <div class="clearfix"></div>
 
-            <li *ngFor="let item of menuItems" [ngClass]="{'active': selectedItem == item}" (click)="listClick(item)">
+            <li *ngFor="let item of menuItems" [class.active]="selectedItem == item" (click)="listClick(item)">
                 <a [routerLink]="item.link" routerLinkActive="active"  href="">
                     <i class="{{item.icon}}">
                         <div class="icon-bg bg-orange"></div>

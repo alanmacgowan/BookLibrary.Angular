@@ -4,6 +4,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { ExceptionService, ToastService, SpinnerService } from '../core';
 import { Observable } from 'rxjs/Observable';
 import { IEntity } from './IEntity';
+import { IPagedResults } from './IPagedResults';
 
 @Injectable()
 export class BaseService {
@@ -22,6 +23,21 @@ export class BaseService {
             .map(res => this.extractData<T[]>(res))
             .catch(this.exceptionService.catchBadResponse)
             .finally(() => this.spinnerService.hide());
+    }
+
+    getPaged(page: number, pageSize: number): Observable<IPagedResults<IEntity[]>> {
+        this.spinnerService.show();
+        return this.http
+            .get(`${this.url}/page/${page}/${pageSize}`)
+            .map((res: Response) => {
+                let result = res.json();
+                return {
+                    results: result.items,
+                    totalRecords: result.count
+                };
+            })
+            .catch(this.exceptionService.catchBadResponse)
+            .finally(() => this.spinnerService.hide());            
     }
 
     getOne<T>(id: string) {
@@ -70,7 +86,7 @@ export class BaseService {
         return <T>(body && body || {});
     }
 
-    private setRequestOptions(){
+    private setRequestOptions() {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions();

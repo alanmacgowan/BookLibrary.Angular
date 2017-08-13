@@ -17,6 +17,31 @@ class BooksRepository {
             });
     }
 
+    getPagedBooks(skip, top, callback) {
+        console.log('*** BooksRepository.getPagedBooks');
+        Book.count((err, bookCount) => {
+            var count = bookCount;
+            console.log(`Skip: ${skip} Top: ${top}`);
+            console.log(`Books count: ${count}`);
+
+            Book.find({})
+                .sort({ _id: 1 })
+                .skip(skip)
+                .limit(top)
+                .exec((err, books) => {
+                    if (err) {
+                        console.log(`*** BooksRepository.getPagedBooks error: ${err}`);
+                        return callback(err);
+                    }
+                    callback(null, {
+                        count: count,
+                        items: books
+                    });
+                });
+
+        });
+    }
+
     getBook(id, callback) {
         console.log('*** BooksRepository.getBook');
         Book.findById(id).exec()

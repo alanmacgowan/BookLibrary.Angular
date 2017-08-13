@@ -5568,3 +5568,13 @@ ul.chats li.out .message {
   border-color: #5cb85c; }
 .radio-success input[type="radio"]:checked + label::after {
   background-color: #5cb85c; }
+.editForm .ng-invalid {
+    border-left: 5px solid #a94442;
+}
+.editForm .ng-valid {
+    border-left: 5px solid #42A948;
+}
+.validation-msg {
+  vertical-align: middle;
+  height: 5px;
+}
