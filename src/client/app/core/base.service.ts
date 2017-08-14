@@ -25,10 +25,10 @@ export class BaseService {
             .finally(() => this.spinnerService.hide());
     }
 
-    getPaged(page: number, pageSize: number): Observable<IPagedResults<IEntity[]>> {
+    getPaged(page: number, pageSize: number, sort?: String, order?: number): Observable<IPagedResults<IEntity[]>> {
         this.spinnerService.show();
         return this.http
-            .get(`${this.url}/page/${page}/${pageSize}`)
+            .get(`${this.url}/page/${page}/${pageSize}/${sort}/${order}`)
             .map((res: Response) => {
                 let result = res.json();
                 return {
