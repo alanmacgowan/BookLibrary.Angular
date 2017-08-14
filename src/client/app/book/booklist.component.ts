@@ -5,6 +5,7 @@ import { BookService } from "./book.service";
 import { ModalService, ToastService, SpinnerService } from '../core';
 import { IPagedResults } from '../core/IPagedResults';
 import { IEntity } from '../core/IEntity';
+import { ISortResult } from '../core/ISortResult';
 
 @Component({
     selector: 'app-booklist',
@@ -16,6 +17,8 @@ export class BookListComponent implements OnInit {
     totalRecords: number = 0;
     pageSize: number = 5;
     currentPage: number = 1;
+    currentSort: String = '_id';
+    currentSortOrder: number = 1;
 
     constructor(private router: Router,
         private modalService: ModalService,
@@ -26,11 +29,11 @@ export class BookListComponent implements OnInit {
 
     pageChanged(page: number) {
         this.currentPage = page;
-        this.getBooksPaged(page);
+        this.getBooksPaged(page, this.currentSort);
     }
 
-    getBooksPaged(page: number) {
-        this.bookService.getPaged((page - 1) * this.pageSize, this.pageSize)
+    getBooksPaged(page: number, sort?: String, order?: number) {
+        this.bookService.getPaged((page - 1) * this.pageSize, this.pageSize, sort, order)
             .subscribe((response: IPagedResults<Book[]>) => {
                 this.books = response.results;
                 this.totalRecords = response.totalRecords;
@@ -43,18 +46,10 @@ export class BookListComponent implements OnInit {
             });
     }
 
-    getBooks() {
-        this.books = [];
-        this.bookService.getBooks()
-            .subscribe(books => {
-                this.books = books;
-            },
-            error => {
-                console.log(error);
-            },
-            () => {
-                console.log('book retrieval completed');
-            });
+    sort(sort: ISortResult) {
+        this.currentSort = sort.column;
+        this.currentSortOrder = sort.order;        
+        this.getBooksPaged(this.currentPage, this.currentSort, this.currentSortOrder);
     }
 
     itemDelete(book: Book) {
@@ -69,7 +64,7 @@ export class BookListComponent implements OnInit {
                     },
                     () => {
                         this.toastService.success(`Successfully Deleted`);
-                        this.getBooksPaged(this.currentPage);
+                        this.getBooksPaged(this.currentPage, this.currentSort);
                     });
 
             }

@@ -17,15 +17,19 @@ class BooksRepository {
             });
     }
 
-    getPagedBooks(skip, top, callback) {
+    getPagedBooks(skip, top, sort, order, callback) {
         console.log('*** BooksRepository.getPagedBooks');
         Book.count((err, bookCount) => {
             var count = bookCount;
             console.log(`Skip: ${skip} Top: ${top}`);
             console.log(`Books count: ${count}`);
+            console.log(`sort: ${sort}`);
+            console.log(`order: ${order}`);
+            var sortObject = {};
+            sortObject[sort] = order;
 
             Book.find({})
-                .sort({ _id: 1 })
+                .sort(sortObject)
                 .skip(skip)
                 .limit(top)
                 .exec((err, books) => {

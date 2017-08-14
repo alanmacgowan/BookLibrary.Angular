@@ -5,10 +5,10 @@
             <thead>
                 <tr>
                     <th style="width:20%;">Action</th>
-                    <th (click)="sort('_id')">#</th>
-                    <th (click)="sort('title')">Name</th>
-                    <th (click)="sort('authors')">Author</th>
-                    <th (click)="sort('category')">Category</th>
+                    <th (click)="sort('_id')"># <span [hidden]="currentSort != '_id'">&nbsp;<i [class]="sortClass"></i></span></th>
+                    <th (click)="sort('title')">Name <span [hidden]="currentSort != 'title'">&nbsp;<i [class]="sortClass"></i></span></th>
+                    <th (click)="sort('authors')">Author <span [hidden]="currentSort != 'authors'">&nbsp;<i [class]="sortClass"></i></span></th>
+                    <th (click)="sort('category')">Category<span [hidden]="currentSort != 'category'">&nbsp;<i [class]="sortClass"></i></span></th>
                 </tr>
             </thead>
             <tbody *ngIf="books">

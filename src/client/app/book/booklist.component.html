@@ -9,7 +9,7 @@
     <br/>
 
 
-    <books-grid [books]="books" (itemEdit)="itemEdit($event)" (itemDelete)="itemDelete($event)"></books-grid>
+    <books-grid [books]="books" (onItemEdit)="itemEdit($event)" (onItemDelete)="itemDelete($event)" (onSort)="sort($event)"></books-grid>
 
     <pagination [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)"></pagination>
 
