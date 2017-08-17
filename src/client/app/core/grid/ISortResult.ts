@@ -1,4 +1,4 @@
-export interface ISortResult{
+export interface ISortResult {
     column: String;
     order: number;
 }

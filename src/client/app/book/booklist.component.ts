@@ -5,7 +5,9 @@ import { BookService } from "./book.service";
 import { ModalService, ToastService, SpinnerService } from '../core';
 import { IPagedResults } from '../core/IPagedResults';
 import { IEntity } from '../core/IEntity';
-import { ISortResult } from '../core/ISortResult';
+import { ISortResult } from '../core/grid/ISortResult';
+import { IGridColumn } from '../core/grid/IGridColumn';
+import { IGridRow } from '../core/grid/IGridRow';
 
 @Component({
     selector: 'app-booklist',
@@ -19,6 +21,8 @@ export class BookListComponent implements OnInit {
     currentPage: number = 1;
     currentSort: String = '_id';
     currentSortOrder: number = 1;
+    columns: IGridColumn[] = [];
+    rows: IGridRow[] = [];
 
     constructor(private router: Router,
         private modalService: ModalService,
@@ -37,6 +41,16 @@ export class BookListComponent implements OnInit {
             .subscribe((response: IPagedResults<Book[]>) => {
                 this.books = response.results;
                 this.totalRecords = response.totalRecords;
+                this.rows = [];
+                for (let book of response.results) {
+                    let cols = [
+                        { title: "Action", name: "_id", type: "ACTIONS", value: '' },
+                        { title: "Id", name: "_id", type: "", value: book._id },
+                        { title: "Name", name: "title", type: "", value: book.title },
+                        { title: "Authors", name: "authors", type: "", value: book.authors },
+                        { title: "Category", name: "category", type: "", value: book.category }];
+                    this.rows.push({ entity: book, columns: cols });
+                }
             },
             error => {
                 console.log(error);
@@ -48,7 +62,7 @@ export class BookListComponent implements OnInit {
 
     sort(sort: ISortResult) {
         this.currentSort = sort.column;
-        this.currentSortOrder = sort.order;        
+        this.currentSortOrder = sort.order;
         this.getBooksPaged(this.currentPage, this.currentSort, this.currentSortOrder);
     }
 
@@ -73,6 +87,13 @@ export class BookListComponent implements OnInit {
 
     ngOnInit() {
         this.getBooksPaged(1);
+
+        this.columns = [
+            { title: "Action", name: "_id", type: "ACTIONS" },
+            { title: "Id", name: "_id", type: "" },
+            { title: "Name", name: "title", type: "" },
+            { title: "Authors", name: "authors", type: "" },
+            { title: "Category", name: "category", type: "" }];
     }
 
     itemEdit(entity: IEntity) {

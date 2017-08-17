@@ -1,11 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'pagination',
-  templateUrl: 'pagination.component.html',
-  styleUrls: [ 'pagination.component.css' ]
+  selector: 'grid-pagination',
+  templateUrl: 'grid-pagination.component.html',
+  styleUrls: [ 'grid-pagination.component.css' ]
 })
-
 export class PaginationComponent implements OnInit {
   
   private pagerTotalItems: number;

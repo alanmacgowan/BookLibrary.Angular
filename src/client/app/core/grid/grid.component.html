@@ -1,0 +1,10 @@
+<div class="panel panel-green">
+    <div class="panel-heading">{{title}}</div>
+    <div class="panel-body">
+        <table *ngIf="rows" class="table table-hover">
+            <grid-header [columns]="columns" (onSort)="sort($event)"></grid-header>
+            <grid-row [items]="rows" (onItemEdit)="editItem($event)" (onItemDelete)="deleteItem($event)"></grid-row>
+        </table>
+        <grid-pagination [totalItems]="totalItems" [pageSize]="pageSize" (pageChanged)="pageChange($event)"></grid-pagination>
+    </div>
+</div>
