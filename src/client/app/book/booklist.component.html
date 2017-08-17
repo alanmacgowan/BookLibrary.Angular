@@ -9,7 +9,7 @@
     <br/>
     
     <app-grid title="Books" [rows]="rows" [columns]="columns" (onItemEdit)="itemEdit($event)" (onItemDelete)="itemDelete($event)"
-        (onSort)="sort($event)" [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)">
+        (onSort)="sort($event)" [totalItems]="totalRecords" [pageSize]="pageSize" (onPageChanged)="pageChanged($event)">
     </app-grid>
 
 </div>

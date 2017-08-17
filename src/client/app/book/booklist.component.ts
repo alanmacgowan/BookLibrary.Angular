@@ -15,7 +15,6 @@ import { IGridRow } from '../core/grid/IGridRow';
 })
 export class BookListComponent implements OnInit {
 
-    books: Book[];
     totalRecords: number = 0;
     pageSize: number = 5;
     currentPage: number = 1;
@@ -33,24 +32,21 @@ export class BookListComponent implements OnInit {
 
     pageChanged(page: number) {
         this.currentPage = page;
-        this.getBooksPaged(page, this.currentSort);
+        this.getBooksPaged(page, this.currentSort, this.currentSortOrder);
     }
 
     getBooksPaged(page: number, sort?: String, order?: number) {
         this.bookService.getPaged((page - 1) * this.pageSize, this.pageSize, sort, order)
             .subscribe((response: IPagedResults<Book[]>) => {
-                this.books = response.results;
                 this.totalRecords = response.totalRecords;
                 this.rows = [];
-                for (let book of response.results) {
-                    let cols = [
-                        { title: "Action", name: "_id", type: "ACTIONS", value: '' },
-                        { title: "Id", name: "_id", type: "", value: book._id },
-                        { title: "Name", name: "title", type: "", value: book.title },
-                        { title: "Authors", name: "authors", type: "", value: book.authors },
-                        { title: "Category", name: "category", type: "", value: book.category }];
-                    this.rows.push({ entity: book, columns: cols });
-                }
+                response.results.forEach((book) => {
+                    this.rows.push({entity: book, columns: [{ type: "ACTIONS", value: '' },
+                                                                            { value: book.title },
+                                                                            { type: "DATE", value: book.publishDate },
+                                                                            { value: book.authors },
+                                                                            { value: book.category }]});
+                });
             },
             error => {
                 console.log(error);
@@ -90,8 +86,8 @@ export class BookListComponent implements OnInit {
 
         this.columns = [
             { title: "Action", name: "_id", type: "ACTIONS" },
-            { title: "Id", name: "_id", type: "" },
             { title: "Name", name: "title", type: "" },
+            { title: "Date", name: "publishDate", type: "" },
             { title: "Authors", name: "authors", type: "" },
             { title: "Category", name: "category", type: "" }];
     }
