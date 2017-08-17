@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { IGridColumn } from "./IGridColumn";
 import { IEntity } from "../IEntity";
 import { IGridRow } from "./IGridRow";
 

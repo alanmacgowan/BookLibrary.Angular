@@ -11,8 +11,6 @@ import { IGridRow } from './IGridRow';
     styles: [`.grid-cell {
         padding: 8px;
         width: 1%;
-        vertical-align: inherit;
-        text-align: left;
     }`],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
@@ -22,7 +20,7 @@ export class GridComponent implements OnInit {
     @Output() onItemEdit: EventEmitter<IEntity> = new EventEmitter();
     @Output() onItemDelete: EventEmitter<IEntity> = new EventEmitter();
     @Output() onSort: EventEmitter<ISortResult> = new EventEmitter();
-    @Output() pageChanged: EventEmitter<number> = new EventEmitter();
+    @Output() onPageChanged: EventEmitter<number> = new EventEmitter();
 
     @Input() columns: IGridColumn[] = [];
     @Input() rows: IGridRow[] = [];
@@ -50,7 +48,7 @@ export class GridComponent implements OnInit {
     }
 
     pageChange(page: number) {
-        this.pageChanged.emit(page);
+        this.onPageChanged.emit(page);
     }
 
 }

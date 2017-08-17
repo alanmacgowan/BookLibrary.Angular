@@ -35,7 +35,7 @@ export class PaginationComponent implements OnInit {
     this.update();
   }
   
-  @Output() pageChanged: EventEmitter<number> = new EventEmitter();
+  @Output() onPageChanged: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
@@ -78,7 +78,7 @@ export class PaginationComponent implements OnInit {
     this.currentPage = page;
     this.previousEnabled = this.currentPage > 1;
     this.nextEnabled = this.currentPage < this.totalPages;
-    this.pageChanged.emit(page);
+    this.onPageChanged.emit(page);
   }
 
 }
