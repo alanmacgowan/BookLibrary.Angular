@@ -14,7 +14,7 @@ import { ModalModule } from './modal/modal.module';
 import { ExceptionService } from './exception.service';
 import { BaseService } from './base.service';
 import { EntityService } from './entity.service';
-import { PaginationComponent } from './pagination/pagination.component';
+import { GridModule } from './grid/grid.module';
 
 @NgModule({
     imports: [
@@ -30,8 +30,7 @@ import { PaginationComponent } from './pagination/pagination.component';
         HeaderComponent,
         FooterComponent,
         MenuComponent,
-        CategoryLabelComponent,
-        PaginationComponent
+        CategoryLabelComponent
     ],
     exports: [
         TitleComponent,
@@ -43,7 +42,7 @@ import { PaginationComponent } from './pagination/pagination.component';
         ToastModule,
         SpinnerModule,
         ModalModule,
-        PaginationComponent
+        GridModule
     ],
     providers: [
         ExceptionService,

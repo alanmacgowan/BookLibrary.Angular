@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookListComponent } from './booklist.component';
 import { BookEditComponent } from './bookedit.component';
 import { BookComponent } from './book.component';
-import { BookGridComponent } from './books-grid.component';
 
 const routes: Routes = [
   { path: '', component: BookComponent, 
@@ -30,4 +29,4 @@ const routes: Routes = [
 })
 export class BookRoutingModule { }
 
-export const routedComponents = [BookComponent, BookListComponent, BookEditComponent, BookGridComponent];
+export const routedComponents = [BookComponent, BookListComponent, BookEditComponent];

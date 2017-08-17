@@ -4,7 +4,7 @@ export class Book implements IEntity {
     constructor(
         public _id: string,
         public title: string,
-        public author: string,
+        public authors: string,
         public description: string,
         public publishDate: Date,
         public price: string,

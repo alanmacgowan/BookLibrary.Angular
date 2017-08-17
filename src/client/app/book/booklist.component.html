@@ -7,10 +7,9 @@
     </div>
 
     <br/>
-
-
-    <books-grid [books]="books" (onItemEdit)="itemEdit($event)" (onItemDelete)="itemDelete($event)" (onSort)="sort($event)"></books-grid>
-
-    <pagination [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)"></pagination>
+    
+    <app-grid title="Books" [rows]="rows" [columns]="columns" (onItemEdit)="itemEdit($event)" (onItemDelete)="itemDelete($event)"
+        (onSort)="sort($event)" [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)">
+    </app-grid>
 
 </div>
