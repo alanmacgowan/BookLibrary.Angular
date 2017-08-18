@@ -9,6 +9,9 @@
             <ng-template [ngIf]="col.type == 'DATE'">
                 {{col.value | date: 'dd/MM/yyyy'}}
             </ng-template>
+            <ng-template [ngIf]="col.type == 'CUSTOM'">
+                    <span>{{col.value}}</span>
+                </ng-template>
             <ng-template [ngIf]="col.type == undefined">
                 {{col.value}}
             </ng-template>

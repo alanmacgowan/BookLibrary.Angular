@@ -15,6 +15,7 @@ import { ExceptionService } from './exception.service';
 import { BaseService } from './base.service';
 import { EntityService } from './entity.service';
 import { GridModule } from './grid/grid.module';
+import { CategoryDirective } from "./directives/category.directive";
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { GridModule } from './grid/grid.module';
         HeaderComponent,
         FooterComponent,
         MenuComponent,
-        CategoryLabelComponent
+        CategoryLabelComponent,
+        CategoryDirective
     ],
     exports: [
         TitleComponent,
@@ -42,7 +44,8 @@ import { GridModule } from './grid/grid.module';
         ToastModule,
         SpinnerModule,
         ModalModule,
-        GridModule
+        GridModule,
+        CategoryDirective
     ],
     providers: [
         ExceptionService,
