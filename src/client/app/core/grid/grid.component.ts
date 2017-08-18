@@ -8,10 +8,7 @@ import { IGridRow } from './IGridRow';
 @Component({
     selector: 'app-grid',
     templateUrl: 'grid.component.html',
-    styles: [`.grid-cell {
-        padding: 8px;
-        width: 1%;
-    }`],
+    styleUrls: ['grid.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })

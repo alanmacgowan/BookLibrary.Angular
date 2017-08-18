@@ -32,28 +32,32 @@ export class BookListComponent implements OnInit {
 
     pageChanged(page: number) {
         this.currentPage = page;
-        this.getBooksPaged(page, this.currentSort, this.currentSortOrder);
+        this.getBooksPaged(this.currentPage, this.currentSort, this.currentSortOrder);
     }
 
     getBooksPaged(page: number, sort?: String, order?: number) {
         this.bookService.getPaged((page - 1) * this.pageSize, this.pageSize, sort, order)
-            .subscribe((response: IPagedResults<Book[]>) => {
-                this.totalRecords = response.totalRecords;
-                this.rows = [];
-                response.results.forEach((book) => {
-                    this.rows.push({entity: book, columns: [{ type: "ACTIONS", value: '' },
-                                                                            { value: book.title },
-                                                                            { type: "DATE", value: book.publishDate },
-                                                                            { value: book.authors },
-                                                                            { value: book.category }]});
-                });
-            },
-            error => {
-                console.log(error);
-            },
-            () => {
-                console.log('book retrieval completed');
+        .map((response: IPagedResults<Book[]>) => {
+            this.rows = [];
+            this.totalRecords = response.totalRecords;
+            return response.results;
+        })
+        .flatMap(response => response)
+        .subscribe((book) => {
+            this.rows.push({
+                entity: book, columns: [{ type: "ACTIONS", value: '' },
+                { value: book.title },
+                { type: "DATE", value: book.publishDate },
+                { value: book.authors },
+                { type: "CUSTOM", value: book.category }]
             });
+        },
+        error => {
+            console.log(error);
+        },
+        () => {
+            console.log('book retrieval completed');
+        });
     }
 
     sort(sort: ISortResult) {
