@@ -1,6 +1,6 @@
 <thead>
     <tr>
-        <th *ngFor="let column of columns" class="grid-cell" style=" text-align: left;">
+        <th *ngFor="let column of columns" class="grid-cell grid-header" >
             <span (click)="sort(column.name)">{{column.title}} <span *ngIf="currentSort == column.name">&nbsp;<i [class]="sortClass"></i></span>
             </span>
         </th>

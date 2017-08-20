@@ -3,6 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Book } from '../models/book.model';
 import { BookService } from './book.service';
 import { EntityService, ToastService, SpinnerService } from '../core';
+import { Language } from '../models/language.model';
+import { LanguageService } from '../shared/language.service';
+import { CategoryService } from '../shared/category.service';
+import { Category } from '../models/category.model';
 
 @Component({
   selector: 'app-bookedit',
@@ -13,19 +17,33 @@ export class BookEditComponent implements OnInit {
   @Input() book: Book;
   editBook: Book = <Book>{};
   private id: any;
-
+  languages: Language[] = [];
+  categories: Category[] = [];
+  
   constructor(private router: Router,
     private route: ActivatedRoute,
     private toastService: ToastService,
     private spinnerService: SpinnerService,
     private entityService: EntityService,
-    private bookService: BookService) { }
+    private bookService: BookService,
+    private languageService: LanguageService,
+    private categoryService: CategoryService) { }
 
   isAddMode() { return this.id === 'new'; }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.getBook();
+    this.getLanguages();
+    this.getCategories();
+  }
+
+  private getLanguages() {
+    this.languages = this.languageService.getLanguages();
+  }
+
+  private getCategories() {
+    this.categories = this.categoryService.getCategories();
   }
 
   private getBook() {
