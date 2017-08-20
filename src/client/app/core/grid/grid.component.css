@@ -2,3 +2,7 @@
     padding: 8px;
     width: 1%;
 }
+.grid-header{
+    cursor: pointer;
+    text-align: left;
+}

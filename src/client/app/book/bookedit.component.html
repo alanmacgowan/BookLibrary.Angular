@@ -51,7 +51,8 @@
                                                         <label for="authors" class="control-label">
                                                                     Authors</label>
                                                         <div class="input-icon right">
-                                                            <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" required />
+                                                            <input name="authors" type="text" placeholder="" class="form-control" #authors="ngModel" [(ngModel)]="editBook.authors" required
+                                                            />
                                                             <div *ngIf="authors.invalid && (authors.dirty || authors.touched)">
                                                                 <span class="alert-danger">Authors is required</span>
                                                             </div>
@@ -64,11 +65,10 @@
                                                     <div class="form-group">
                                                         <label for="Language" class="control-label">
                                                             Language</label>
-                                                        <select id="Language" class="form-control">
-                                                                    <option>English</option>
-                                                                    <option>Spanish</option>
-                                                                    <option>Russian</option>
-                                                                </select></div>
+                                                        <select class="form-control" [(ngModel)]="editBook.language" name="language" required>
+                                                        <option *ngFor="let language of languages" [ngValue]="language.name">{{language.name}}</option>
+                                                    </select>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -84,11 +84,10 @@
                                                     <div class="form-group">
                                                         <label for="Category" class="control-label">
                                                             Category</label>
-                                                        <select id="Category" class="form-control">
-                                                                    <option>History</option>
-                                                                    <option>Comedy</option>
-                                                                    <option>Science Fiction</option>
-                                                                </select></div>
+                                                            <select class="form-control" [(ngModel)]="editBook.category" name="category" required>
+                                                                    <option *ngFor="let category of categories" [ngValue]="category.name">{{category.name}}</option>
+                                                                </select>
+                                                            </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -96,20 +95,20 @@
                                                     <div class="form-group">
                                                         <label for="price" class="control-label">
                                                             Price</label>
-                                                        <input name="price" type="text" placeholder="" class="form-control" #price="ngModel" [(ngModel)]="editBook.price" /></div>
+                                                        <input name="price" type="text" placeholder="" class="form-control" #price="ngModel" [(ngModel)]="editBook.price" required /></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="pages" class="control-label">
                                                             Pages</label>
-                                                        <input name="pages" type="text" placeholder="" class="form-control" #pages="ngModel" [(ngModel)]="editBook.pages" /></div>
+                                                        <input name="pages" type="text" placeholder="" class="form-control" #pages="ngModel" [(ngModel)]="editBook.pages" required /></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="publishDate" class="control-label">
                                                             Publish Date</label>
-                                                        <input name="publishDate" type="text" placeholder="" class="form-control" #publishDate="ngModel" [(ngModel)]="editBook.publishDate"
-                                                        /></div>
+                                                        <input name="publishDate" type="date" placeholder="" class="form-control" #publishDate="ngModel" [(ngModel)]="editBook.publishDate" required />
+                                                    </div>
                                                 </div>
                                             </div>
 

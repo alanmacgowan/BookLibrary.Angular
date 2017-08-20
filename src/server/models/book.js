@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 const BookSchema = new Schema({
     title: { type: String, required: true, trim: true },
     authors: { type: String, required: true, trim: true },
-    description: { type: String, required: true, trim: true },
+    description: { type: String, trim: true },
     publishDate: { type: Date, required: true, trim: true },
     price: { type: String, required: true, trim: true },
     language: { type: String},
