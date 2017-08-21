@@ -65,9 +65,12 @@
                                                     <div class="form-group">
                                                         <label for="Language" class="control-label">
                                                             Language</label>
-                                                        <select class="form-control" [(ngModel)]="editBook.language" name="language" required>
+                                                        <select class="form-control" [(ngModel)]="editBook.language" name="language" #language="ngModel" required>
                                                         <option *ngFor="let language of languages" [ngValue]="language.name">{{language.name}}</option>
                                                     </select>
+                                                        <div *ngIf="language.invalid && (language.dirty || language.touched)">
+                                                            <span class="alert-danger">Language is required</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -84,10 +87,13 @@
                                                     <div class="form-group">
                                                         <label for="Category" class="control-label">
                                                             Category</label>
-                                                            <select class="form-control" [(ngModel)]="editBook.category" name="category" required>
+                                                        <select class="form-control" [(ngModel)]="editBook.category" name="category" #category="ngModel" required>
                                                                     <option *ngFor="let category of categories" [ngValue]="category.name">{{category.name}}</option>
                                                                 </select>
-                                                            </div>
+                                                        <div *ngIf="category.invalid && (category.dirty || category.touched)">
+                                                            <span class="alert-danger">Category is required</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -95,19 +101,33 @@
                                                     <div class="form-group">
                                                         <label for="price" class="control-label">
                                                             Price</label>
-                                                        <input name="price" type="text" placeholder="" class="form-control" #price="ngModel" [(ngModel)]="editBook.price" required /></div>
+                                                        <input name="price" type="text" placeholder="" class="form-control" #price="ngModel" [(ngModel)]="editBook.price" required
+                                                        />
+                                                        <div *ngIf="price.invalid && (price.dirty || price.touched)">
+                                                            <span class="alert-danger">Price is required</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="pages" class="control-label">
                                                             Pages</label>
-                                                        <input name="pages" type="text" placeholder="" class="form-control" #pages="ngModel" [(ngModel)]="editBook.pages" required /></div>
+                                                        <input name="pages" type="text" placeholder="" class="form-control" #pages="ngModel" [(ngModel)]="editBook.pages" required
+                                                        />
+                                                        <div *ngIf="pages.invalid && (pages.dirty || pages.touched)">
+                                                            <span class="alert-danger">Pages is required</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="publishDate" class="control-label">
                                                             Publish Date</label>
-                                                        <input name="publishDate" type="date" placeholder="" class="form-control" #publishDate="ngModel" [(ngModel)]="editBook.publishDate" required />
+                                                        <input name="publishDate" type="date" placeholder="" class="form-control" #publishDate="ngModel" [(ngModel)]="editBook.publishDate"
+                                                            required />
+                                                        <div *ngIf="publishDate.invalid && (publishDate.dirty || publishDate.touched)">
+                                                            <span class="alert-danger">Publish Date is required</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
