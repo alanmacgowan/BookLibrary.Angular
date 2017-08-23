@@ -21,6 +21,8 @@ Using:<br/>
 * Travis & Appveyor (CI)
 * Firebase (Hosting UI - Angular)
 * Heroku (Hosting API - Node js)
+* karma
+* jasmine
 
 ## Diagram
 <img src="https://github.com/alanmacgowan/BookLibrary.Angular/blob/master/BookLibrary%20.jpg" />
