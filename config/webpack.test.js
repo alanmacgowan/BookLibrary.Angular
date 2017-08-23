@@ -1,52 +1,104 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require('path');
-var webpack = require('webpack');
 var helpers = require('./helpers');
-var autoprefixer = require('autoprefixer');
+var ProvidePlugin = require('webpack/lib/ProvidePlugin');
+var DefinePlugin = require('webpack/lib/DefinePlugin');
+var LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
-module.exports = {
-    devtool: 'inline-source-map',
-    module: {
-        rules: [{
-            test: /\.ts$/,
-            enforce: 'pre',
-            loader: 'tslint-loader'
+const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
+
+module.exports = function (options) {
+    return {
+        devtool: 'inline-source-map',
+        resolve: {
+            extensions: ['.ts', '.js'],
+            modules: [helpers.root('src/client'), 'node_modules']
         },
-        {
-            test: /\.ts$/,
-            loaders: ['awesome-typescript-loader?', 'angular2-template-loader', '@angularclass/hmr-loader'],
-            exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
+        module: {
+            rules: [
+                {
+                    enforce: 'pre',
+                    test: /\.js$/,
+                    loader: 'source-map-loader',
+                    exclude: [
+                        helpers.root('node_modules/rxjs'),
+                        helpers.root('node_modules/@angular')
+                    ]
+                },
+                {
+                    test: /\.ts$/,
+                    use: [
+                        {
+                            loader: 'awesome-typescript-loader',
+                            query: {
+                                sourceMap: false,
+                                inlineSourceMap: true,
+                                compilerOptions: {
+                                    removeComments: true
+
+                                }
+                            },
+                        },
+                        'angular2-template-loader'
+                    ],
+                    exclude: [/\.e2e\.ts$/]
+                },
+                {
+                    test: /\.css$/,
+                    loader: ['to-string-loader', 'css-loader'],
+                    exclude: [helpers.root('src/index.html')]
+                },
+                {
+                    test: /\.html$/,
+                    loader: 'raw-loader',
+                    exclude: [helpers.root('src/client/index.html')]
+                },
+                {
+                    enforce: 'post',
+                    test: /\.(js|ts)$/,
+                    loader: 'istanbul-instrumenter-loader',
+                    include: helpers.root('src'),
+                    exclude: [
+                        /\.(e2e|spec)\.ts$/,
+                        /node_modules/
+                    ]
+                }
+
+            ]
         },
-        {
-            test: /\.css$/,
-            exclude: helpers.root('src/client', 'app'),
-            use: ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader" })
+        plugins: [
+            new DefinePlugin({
+                'ENV': JSON.stringify(ENV),
+                'HMR': false,
+                'process.env': {
+                    'ENV': JSON.stringify(ENV),
+                    'NODE_ENV': JSON.stringify(ENV),
+                    'HMR': false,
+                }
+            }),
+            new ContextReplacementPlugin(
+                /angular(\\|\/)core(\\|\/)@angular/,
+                helpers.root('src/client'), // location of your src
+                {
+                }
+            ),
+            new LoaderOptionsPlugin({
+                debug: false,
+                options: {
+                }
+            }),
+
+        ],
+        performance: {
+            hints: false
         },
-        {
-            test: /\.css$/,
-            include: helpers.root('src/client', 'app'),
-            loaders: ['css-to-string-loader', 'css-loader']
-        },
-        {
-            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            loader: 'url-loader?limit=10000',
-        },
-        {
-            test: /\.(png|svg|jpg|gif)$/,
-            use: ['file-loader']
-        },
-        {
-            test: /\.json$/,
-            loader: 'json-loader'
-        },
-        {
-            test: /\.html$/,
-            use: 'raw-loader',
-            exclude: [helpers.root('src/client/index.html')]
+        node: {
+            global: true,
+            process: false,
+            crypto: 'empty',
+            module: false,
+            clearImmediate: false,
+            setImmediate: false
         }
-        ]
-    },
-    resolve: {
-        extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html'],
-    }
-};
+
+    };
+}
