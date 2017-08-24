@@ -34,7 +34,7 @@ module.exports = function (config) {
         logLevel: config.LOG_WARN,
         autoWatch: true,
         browsers: [
-           'ChromeDebugging' //'Chrome'
+           'ChromeHeadless'//'ChromeDebugging' //'Chrome'
         ],
         customLaunchers: {
             ChromeDebugging: {
