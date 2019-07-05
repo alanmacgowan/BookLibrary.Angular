@@ -25,7 +25,9 @@
     "commit": "npm --no-git-tag-version version patch -f && git add . && git commit -m ",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m \"updated CHANGELOG.md\" && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -112,6 +114,8 @@
     "reflect-metadata": "^0.1.3",
     "rxjs": "^5.0.1",
     "tslib": "^1.7.1",
-    "zone.js": "^0.8.10"
-  }
+    "zone.js": "^0.8.10",
+    "snyk": "^1.192.0"
+  },
+  "snyk": true
 }
